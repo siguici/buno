@@ -9,17 +9,17 @@ optimizing performance and compatibility for each runtime.
 
 - **Cross-Platform Compatibility**: Works seamlessly across Node.js, Bun, and Deno.
 - **Unified API**: Provides a consistent interface for accessing common modules
-like `fs`, `path`, etc.
+  like `fs`, `path`, etc.
 - **Runtime Detection**: Automatically detects the runtime environment
-and loads the appropriate implementation.
+  and loads the appropriate implementation.
 - **Optimized Performance**: Adapts to each runtime's specific features
-for optimal performance.
+  for optimal performance.
 
 ## 🛠️ Supported Runtimes
 
-- >[Node.js 🟢](https://nodejs.org/)
-- >[Bun 🟣](https://bun.sh/)
-- >[Deno 🔵](https://deno.com/)
+- [Node.js 🟢](https://nodejs.org/)
+- [Bun 🟣](https://bun.sh/)
+- [Deno 🔵](https://deno.com/)
 
 ## 🚀 Installation
 
@@ -107,19 +107,19 @@ from [`NPM`](https://npmjs.com/package/buno.js) or [`JSR`](https://jsr.io/@sigui
 - Import from `NPM`:
 
   ```javascript
-  import { path, fs } from 'buno.js';
+  import { fs, path } from 'buno.js';
   ```
 
 - Import from `JSR`:
 
   ```javascript
-  import { path, fs } from '@siguici/buno';
+  import { fs, path } from '@siguici/buno';
   ```
 
 - Import without install (using `Deno`):
 
   ```javascript
-  import { path, fs } from 'jsr:@siguici/buno';
+  import { fs, path } from 'jsr:@siguici/buno';
   ```
 
 - Use the `plug` function to define a plugin:
