@@ -22,7 +22,15 @@
     "exclude": ["!jsr/*.ts"]
   },
   "compilerOptions": {
-    "lib": ["ESNext", "DOM", "webworker", "DOM.Iterable"]
+    "lib": [
+      "esnext",
+      "webworker",
+      "deno.ns",
+      "deno.window",
+      "dom",
+      "dom.iterable",
+      "dom.asynciterable"
+    ]
   },
   "fmt": {
     "useTabs": false,
@@ -33,9 +41,10 @@
     "proseWrap": "preserve"
   },
   "tasks": {
-    "check": "deno task check:fmt && deno task check:lint",
+    "check": "deno task check:fmt && deno task check:lint && deno task check:types",
     "check:fmt": "deno fmt --check",
-    "check:lint": "deno check jsr/*.ts",
-    "fix": "deno lint && deno fmt"
+    "check:lint": "deno lint",
+    "check:types": "deno check jsr/*.ts",
+    "fix": "deno lint --fix && deno fmt"
   }
 }
