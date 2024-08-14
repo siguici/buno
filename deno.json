@@ -35,12 +35,9 @@
     "./util": "./jsr/util.ts",
     "./vm": "./jsr/vm.ts",
     "./worker_threads": "./jsr/worker_threads.ts",
-    "./zlib": "./jsr/zlib.ts",
-    "./deno.json": "./deno.json",
-    "./package.json": "./package.json",
-    "./tsconfig.json": "./tsconfig.json"
+    "./zlib": "./jsr/zlib.ts"
   },
-  "include": ["deno.json", "jsr/*.ts", "README.md", "LICENSE.md"],
+  "include": ["./deno.json", "jsr/*.ts", "README.md"],
   "exclude": [
     ".*",
     "jsr/*.test.ts",
@@ -54,7 +51,14 @@
     "deno.lock"
   ],
   "publish": {
-    "include": ["jsr/**", "deno.json", "README.md", "LICENSE.md"],
+    "include": [
+      "jsr/**",
+      "deno.json",
+      "package.json",
+      "tsconfig.json",
+      "README.md",
+      "LICENSE.md"
+    ],
     "exclude": ["!jsr/*.ts"]
   },
   "compilerOptions": {
