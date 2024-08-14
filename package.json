@@ -44,6 +44,204 @@
       "import": "./js/index.mjs",
       "require": "./js/index.cjs"
     },
+    "./assert": {
+      "types": "./ts/assert.d.ts",
+      "default": "./js/assert.js",
+      "import": "./js/assert.mjs",
+      "require": "./js/assert.cjs"
+    },
+    "./async_hooks": {
+      "types": "./ts/async_hooks.d.ts",
+      "default": "./js/async_hooks.js",
+      "import": "./js/async_hooks.mjs",
+      "require": "./js/async_hooks.cjs"
+    },
+    "./buffer": {
+      "types": "./ts/buffer.d.ts",
+      "default": "./js/buffer.js",
+      "import": "./js/buffer.mjs",
+      "require": "./js/buffer.cjs"
+    },
+    "./child_process": {
+      "types": "./ts/child_process.d.ts",
+      "default": "./js/child_process.js",
+      "import": "./js/child_process.mjs",
+      "require": "./js/child_process.cjs"
+    },
+    "./console": {
+      "types": "./ts/console.d.ts",
+      "default": "./js/console.js",
+      "import": "./js/console.mjs",
+      "require": "./js/console.cjs"
+    },
+    "./crypto": {
+      "types": "./ts/crypto.d.ts",
+      "default": "./js/crypto.js",
+      "import": "./js/crypto.mjs",
+      "require": "./js/crypto.cjs"
+    },
+    "./dgram": {
+      "types": "./ts/dgram.d.ts",
+      "default": "./js/dgram.js",
+      "import": "./js/dgram.mjs",
+      "require": "./js/dgram.cjs"
+    },
+    "./diagnostics_channel": {
+      "types": "./ts/diagnostics_channel.d.ts",
+      "default": "./js/diagnostics_channel.js",
+      "import": "./js/diagnostics_channel.mjs",
+      "require": "./js/diagnostics_channel.cjs"
+    },
+    "./dns": {
+      "types": "./ts/dns.d.ts",
+      "default": "./js/dns.js",
+      "import": "./js/dns.mjs",
+      "require": "./js/dns.cjs"
+    },
+    "./events": {
+      "types": "./ts/events.d.ts",
+      "default": "./js/events.js",
+      "import": "./js/events.mjs",
+      "require": "./js/events.cjs"
+    },
+    "./fs": {
+      "types": "./ts/fs.d.ts",
+      "default": "./js/fs.js",
+      "import": "./js/fs.mjs",
+      "require": "./js/fs.cjs"
+    },
+    "./http": {
+      "types": "./ts/http.d.ts",
+      "default": "./js/http.js",
+      "import": "./js/http.mjs",
+      "require": "./js/http.cjs"
+    },
+    "./http2": {
+      "types": "./ts/http2.d.ts",
+      "default": "./js/http2.js",
+      "import": "./js/http2.mjs",
+      "require": "./js/http2.cjs"
+    },
+    "./https": {
+      "types": "./ts/https.d.ts",
+      "default": "./js/https.js",
+      "import": "./js/https.mjs",
+      "require": "./js/https.cjs"
+    },
+    "./module": {
+      "types": "./ts/module.d.ts",
+      "default": "./js/module.js",
+      "import": "./js/module.mjs",
+      "require": "./js/module.cjs"
+    },
+    "./net": {
+      "types": "./ts/net.d.ts",
+      "default": "./js/net.js",
+      "import": "./js/net.mjs",
+      "require": "./js/net.cjs"
+    },
+    "./os": {
+      "types": "./ts/os.d.ts",
+      "default": "./js/os.js",
+      "import": "./js/os.mjs",
+      "require": "./js/os.cjs"
+    },
+    "./path": {
+      "types": "./ts/path.d.ts",
+      "default": "./js/path.js",
+      "import": "./js/path.mjs",
+      "require": "./js/path.cjs"
+    },
+    "./perf_hooks": {
+      "types": "./ts/perf_hooks.d.ts",
+      "default": "./js/perf_hooks.js",
+      "import": "./js/perf_hooks.mjs",
+      "require": "./js/perf_hooks.cjs"
+    },
+    "./process": {
+      "types": "./ts/process.d.ts",
+      "default": "./js/process.js",
+      "import": "./js/process.mjs",
+      "require": "./js/process.cjs"
+    },
+    "./punycode": {
+      "types": "./ts/punycode.d.ts",
+      "default": "./js/punycode.js",
+      "import": "./js/punycode.mjs",
+      "require": "./js/punycode.cjs"
+    },
+    "./querystring": {
+      "types": "./ts/querystring.d.ts",
+      "default": "./js/querystring.js",
+      "import": "./js/querystring.mjs",
+      "require": "./js/querystring.cjs"
+    },
+    "./readline": {
+      "types": "./ts/readline.d.ts",
+      "default": "./js/readline.js",
+      "import": "./js/readline.mjs",
+      "require": "./js/readline.cjs"
+    },
+    "./stream": {
+      "types": "./ts/stream.d.ts",
+      "default": "./js/stream.js",
+      "import": "./js/stream.mjs",
+      "require": "./js/stream.cjs"
+    },
+    "./string_decoder": {
+      "types": "./ts/string_decoder.d.ts",
+      "default": "./js/string_decoder.js",
+      "import": "./js/string_decoder.mjs",
+      "require": "./js/string_decoder.cjs"
+    },
+    "./timers": {
+      "types": "./ts/timers.d.ts",
+      "default": "./js/timers.js",
+      "import": "./js/timers.mjs",
+      "require": "./js/timers.cjs"
+    },
+    "./tls": {
+      "types": "./ts/tls.d.ts",
+      "default": "./js/tls.js",
+      "import": "./js/tls.mjs",
+      "require": "./js/tls.cjs"
+    },
+    "./tty": {
+      "types": "./ts/tty.d.ts",
+      "default": "./js/tty.js",
+      "import": "./js/tty.mjs",
+      "require": "./js/tty.cjs"
+    },
+    "./url": {
+      "types": "./ts/url.d.ts",
+      "default": "./js/url.js",
+      "import": "./js/url.mjs",
+      "require": "./js/url.cjs"
+    },
+    "./util": {
+      "types": "./ts/util.d.ts",
+      "default": "./js/util.js",
+      "import": "./js/util.mjs",
+      "require": "./js/util.cjs"
+    },
+    "./vm": {
+      "types": "./ts/vm.d.ts",
+      "default": "./js/vm.js",
+      "import": "./js/vm.mjs",
+      "require": "./js/vm.cjs"
+    },
+    "./worker_threads": {
+      "types": "./ts/worker_threads.d.ts",
+      "default": "./js/worker_threads.js",
+      "import": "./js/worker_threads.mjs",
+      "require": "./js/worker_threads.cjs"
+    },
+    "./zlib": {
+      "types": "./ts/zlib.d.ts",
+      "default": "./js/zlib.js",
+      "import": "./js/zlib.mjs",
+      "require": "./js/zlib.cjs"
+    },
     "./deno.json": "./deno.json",
     "./package.json": "./package.json",
     "./tsconfig.json": "./tsconfig.json"
