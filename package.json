@@ -1,0 +1,81 @@
+{
+  "name": "buno.js",
+  "version": "0.0.0",
+  "private": false,
+  "sideEffects": false,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "bun": ">=1.1"
+  },
+  "packageManager": "bun@1.1.24",
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/siguici/buno#readme",
+  "repository": "https://github.com/siguici/buno",
+  "bugs": "https://github.com/siguici/buno/issues",
+  "author": {
+    "name": "Sigui Kessé Emmanuel",
+    "email": "siguici@proton.me",
+    "url": "https://github.com/siguici"
+  },
+  "description": "⚙️  Cross-Platform JavaScript/TypeScript Runtime Adapter",
+  "keywords": [
+    "cross-platform",
+    "runtime",
+    "adapter",
+    "JavaScript",
+    "TypeScript",
+    "Node.js",
+    "Bun",
+    "Deno",
+    "API",
+    "compatibility"
+  ],
+  "module": "./js/index.js",
+  "main": "./js/index.js",
+  "types": "./ts/",
+  "files": ["js/**/*", "ts/**/*"],
+  "exports": {
+    ".": {
+      "types": "./ts/index.d.ts",
+      "default": "./js/index.js",
+      "import": "./js/index.mjs",
+      "require": "./js/index.cjs"
+    },
+    "./deno.json": "./deno.json",
+    "./package.json": "./package.json",
+    "./tsconfig.json": "./tsconfig.json"
+  },
+  "scripts": {
+    "build": "bun run build.node && bun run build.deno",
+    "build.node": "bun run clear.node && tsc --build && bun scripts/build.ts",
+    "build.deno": "bun run clear.deno && bun run denoify",
+    "check": "biome ci . && knip",
+    "check.format": "biome format .",
+    "check.lint": "biome check .",
+    "clear": "bun run clear.node && bun run clear.deno",
+    "clear.node": "rimraf js && rimraf ts",
+    "clear.deno": "rimraf jsr/*",
+    "denoify": "denoify --out jsr",
+    "debug": "bun check && bun test",
+    "fix": "bun run unsed && bun lint && bun format",
+    "format": "biome format --write .",
+    "knip": "knip",
+    "lint": "biome check --write .",
+    "unsed": "knip --fix"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/bun": "^1.1.6",
+    "@types/node": "^22.3.0",
+    "denoify": "^1.6.13",
+    "esbuild": "^0.23.0",
+    "globby": "^14.0.2",
+    "knip": "^5.27.2",
+    "rimraf": "^6.0.1",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4"
+  }
+}
