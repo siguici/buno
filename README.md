@@ -122,7 +122,7 @@ from [`NPM`](https://npmjs.com/package/buno.js) or [`JSR`](https://jsr.io/@sigui
   import { fs, path } from 'jsr:@siguici/buno';
   ```
 
-- Use the `plug` function to define a plugin:
+- Use modules imported from `Buno`:
 
   ```typescript
   // Example usage of fs
@@ -135,6 +135,28 @@ from [`NPM`](https://npmjs.com/package/buno.js) or [`JSR`](https://jsr.io/@sigui
   const fullPath = path.resolve('example.txt');
   console.log(fullPath);
   ```
+
+## ⚙️  Node.js API Compatibility
+
+Buno aims to unify and simplify cross-runtime development
+by providing a consistent interface for [Node.js APIs](https://nodejs.org/api/)
+across [Deno](https://deno.com/) and [Bun](https://bun.sh/).
+While Buno strives for complete Node.js API compatibility,
+some modules may have partial or no implementation in specific runtimes.
+Most [npm packages](https://www.npmjs.com/) intended for `Node.js` environments
+will work seamlessly with Buno, but the best way to ensure compatibility is
+to test them directly.
+
+This document is regularly updated to reflect the compatibility status
+of the latest versions of `Deno` and `Bun`.
+The information below reflects Buno's compatibility with _Node.js v20 APIs_
+as implemented in both `Deno` and `Bun`. If you encounter any compatibility issues,
+please [open an issue on GitHub](https://github.com/siguici/buno/issues/new/choose).
+Reporting such issues helps us prioritize and address gaps in compatibility.
+
+- ✅ = Full support
+- ℹ️ = Partial support
+- ❌ = Stubs only
 
 ## 🤝Contributing
 
