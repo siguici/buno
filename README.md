@@ -154,381 +154,340 @@ as implemented in both `Deno` and `Bun`. If you encounter any compatibility issu
 please [open an issue on GitHub](https://github.com/siguici/buno/issues/new/choose).
 Reporting such issues helps us prioritize and address gaps in compatibility.
 
-### 📦 Built-in Module Support
+- ✅ = Implemented in both
+- ⚠️ = Partial support
+- ❌ = Not implemented in either
 
 - 🟢 = Fully implemented
 - 🟡 = Partially implemented
 - 🔴 = Not implemented
 
-- 🟢 **`assert`**
-  - [x] Fully supported on both Deno and Bun
+### 📦 Built-in Module Support
 
-- 🟡 **`async_hooks`**
-  - [x] AsyncLocalStorage supported
-  - [ ] AsyncResource missing bind (Not implemented on Bun)
+- ✅ **node:assert**
+  - 🟢 Fully implemented in both.
 
-- 🟢 **`buffer`**
-  - [x] Fully supported on both Deno and Bun
+- ⚠️ **node:async_hooks**
+  - 🟡 Only `AsyncLocalStorage`, and `AsyncResource` are implemented.
+    `AsyncResource` is missing bind in Bun.
+  - 🟡 `AsyncLocalStorage` is supported. `AsyncResource`, `executionAsyncId`,
+    and `createHook` are non-functional stubs in Deno.
 
-- 🟡 **`child_process`**
-  - [x] Fully supported on Deno
-  - [ ] Missing proc.gid, proc.uid; Stream class not exported;
-        IPC limitations (Not implemented on Bun)
+- ✅ **node:buffer**
+  - 🟢 Fully implemented in both.
 
-- 🔴 **`cluster`**
-  - [ ] Not implemented on both Deno and Bun
+- ⚠️ **node:child_process**
+  - 🟡 Missing `proc.gid`, `proc.uid`. Stream class not exported.
+    IPC cannot send socket handles in Bun.
+  - 🟢 Fully implemented in Deno
 
-- 🟢 **`console`**
-  - [x] Fully supported on both Deno and Bun
+- ❌ **node:cluster**
+  - 🔴 Not implemented in both.
 
-- 🟡 **`crypto`**
-  - [x] Fully supported on Deno
-  - [ ] Missing features like Certificate class, ECDH, X509Certificate, etc.
-        (Not implemented on Bun)
+- ✅ **node:console**
+  - 🟢 Fully implemented in both.
 
-- 🟡 **`dgram`**
-  - [x] Basic functionality supported
-  - [ ] Missing multiple methods (Not implemented on Bun)
+- ⚠️ **node:crypto**
+  - 🟡 Missing various methods including `Certificate`, `ECDH`, `X509Certificate`,
+    etc. Some methods are not optimized in Bun.
+  - 🟡 Missing `Certificate class`, `crypto.Cipheriv.prototype.setAutoPadding`,
+    `crypto.Decipheriv.prototype.setAutoPadding`, `crypto.publicDecrypt`,
+    `crypto.ECDH.prototype.convertKey`, `x448` option for `generateKeyPair`,
+    `crypto.KeyObject`, and other methods in Deno.
 
-- 🟢 **`diagnostics_channel`**
-  - [x] Fully supported on both Deno and Bun
+- ⚠️ **node:dgram**
+  - 🟡 Missing several methods such as `setBroadcast`, `setTTL`, `setMulticastTTL`,
+    etc., in Bun.
+  - 🟡 Some methods are non-functional stubs in Deno.
 
-- 🟡 **`dns`**
-  - [x] Basic functionality supported
-  - [ ] Missing options like ttl (Not implemented on Bun)
+- ✅ **node:diagnostics_channel**
+  - 🟢 Fully implemented in both.
 
-- 🔴 **`domain`**
-  - [ ] Not implemented on both Deno and Bun
+- ⚠️ **node:dns**
+  - 🟡 Missing `cancel`, `setServers`, `getDefaultResultOrder` in Bun.
+  - 🟡 Missing `dns.resolve*` with `ttl` option in Deno.
 
-- 🟡 **`events`**
-  - [x] Basic functionality supported
-  - [ ] Some methods and EventTarget support missing (Not implemented on Bun)
+- ⚠️ **node:domain**
+  - 🔴 All exports are non-functional stubs in both
 
-- 🟡 **`fs`**
-  - [x] Fully supported on Deno
-  - [ ] Missing some encodings and lchmod (Not implemented on Bun)
+- ⚠️ **node:events**
+  - 🟡 `events.addAbortListener` & `events.getMaxListeners`
+    do not support (web api) `EventTarget` in Bun.
+  - 🟢 Fully implemented in Deno
 
-- 🟡 **`http`**
-  - [x] Fully supported on both Deno and Bun
-  - [ ] Some options not fully supported (Not implemented on Bun)
+- ⚠️ **node:fs**
+  - 🟡 Missing `statfs`, `statfsSync`, `opendirSync`.
+    Dir is partially implemented in Bun.
+  - 🟡 Missing `utf16le`, `latin1`, and `ucs2` encoding for `fs.writeFile` and `fs.writeFileSync`.
+    `lchmod` is missing in `fs/promises` in Deno.
 
-- 🟡 **`http2`**
-  - [x] Basic client support
-  - [ ] Server functionality missing (Not implemented on Bun)
+- ✅ **node:http**
+  - 🟢 Fully implemented in both.
+    Outgoing client request body is currently buffered instead of streamed in Bun.
 
-- 🟡 **`https`**
-  - [x] Basic functionality supported
-  - [ ] Missing some options like cert and key array type (Not implemented on Bun)
+- ⚠️ **node:http2**
+  - 🟡 Client is supported, but server isn't yet in Bun.
+  - 🟡 Partially supported, major work in progress to enable `grpc-js` in Deno.
 
-- 🔴 **`inspector`**
-  - [ ] Not implemented on both Deno and Bun
+- ⚠️ **node:https**
+  - 🟡 APIs are implemented, but Agent is not always used yet in Bun.
+  - 🟡 `Missing https.Server.opts.cert` and `https.Server.opts.key` array type in Deno.
 
-- 🟡 **`module`**
-  - [x] Fully supported on Deno
-  - [ ] `register()` function not supported (Not implemented on Bun)
+- ❌ **node:inspector**
+  - 🔴 Not implemented in both.
 
-- 🟡 **`net`**
-  - [x] Basic functionality supported
-  - [ ] Missing certain features like SocketAddress Stream (Not implemented on Bun)
+- ⚠️ **node:module**
+  - 🟡 Missing `runMain`, `syncBuiltinESMExports`, `Module#load()`.
+    Attempts to override or patch the module cache will fail in Bun.
+  - 🟡 The `register()` function is not supported in Deno.
 
-- 🟢 **`os`**
-  - [x] Fully supported on both Deno and Bun
+- ⚠️ **node:net**
+  - 🟡 Missing `SocketAddress` `Stream`, `BlockList` is a no-op in Bun.
+  - 🟡 Missing `net.Socket.prototype.constructor` with `fd` option in Deno.
 
-- 🟢 **`path`**
-  - [x] Fully supported on both Deno and Bun
+- ✅ **node:os**
+  - 🟢 Fully implemented in both.
 
-- 🟡 **`perf_hooks`**
-  - [x] Basic functionality supported
-  - [ ] Missing some features (Not implemented on Bun)
+- ✅ **node:path**
+  - 🟢 Fully implemented in both.
 
-- 🟡 **`process`**
-  - [x] Basic functionality supported
-  - [ ] Missing some features like multipleResolves (Not implemented on Bun)
+- ⚠️ **node:perf_hooks**
+  - 🟡 Missing `createHistogram`, `monitorEventLoopDelay` in Bun.
+  - 🟡 Missing `perf_hooks.eventLoopUtilization`, `perf_hooks.timerify`,
+    `perf_hooks.monitorEventLoopDelay` in Deno.
 
-- 🟢 **`punycode`**
-  - [x] Fully supported on both Deno and Bun
+- ⚠️ **node:process**
+  - 🟡 See `process` Global in Bun.
+  - 🟡 Missing `multipleResolves`, `worker` events in Deno.
 
-- 🟢 **`querystring`**
-  - [x] Fully supported on both Deno and Bun
+- ✅ **node:punycode**
+  - 🟢 Fully implemented in both.
 
-- 🟢 **`readline`**
-  - [x] Fully supported on both Deno and Bun
+- ✅ **node:querystring**
+  - 🟢 Fully implemented in both.
 
-- 🔴 **`repl`**
-  - [ ] Not implemented on both Deno and Bun
+- ✅ **node:readline**
+  - 🟢 Fully implemented in both.
 
-- 🟡 **`stream`**
-  - [x] Basic functionality supported
-  - [ ] Missing some methods (Not implemented on Bun)
+- ❌ **node:repl**
+  - 🔴 Not implemented in Bun.
+  - 🟡 `builtinModules` and `_builtinLibs` are supported.
+    Missing `REPLServer.prototype.constructor` and `start()` in Deno.
 
-- 🟢 **`string_decoder`**
-  - [x] Fully supported on both Deno and Bun
+- ⚠️ **node:stream**
+  - 🟡 Missing `getDefaultHighWaterMark`, `setDefaultHighWaterMark`, `toWeb` in Bun.
+  - 🟢 Fully implemented in Deno.
 
-- 🟡 **`sys`**
-  - [x] Basic functionality supported
-  - [ ] Refer to `util` for some features (Not implemented on Bun)
+- ✅ **node:string_decoder**
+  - 🟢 Fully implemented in both.
 
-- 🔴 **`test`**
-  - [ ] Not implemented on Bun; Use `bun:test` instead
+- ✅ **node:sys**
+  - 🟢 Fully implemented in both.
 
-- 🟢 **`timers`**
-  - [x] Fully supported on both Deno and Bun
+- ❌ **node:test**
+  - 🔴 Not implemented in Bun. Use `bun:test` instead.
+  - 🟡 Currently only test API is supported in Deno.
 
-- 🟡 **`tls`**
-  - [x] Basic functionality supported
-  - [ ] Missing `createSecurePair` (Not implemented on Bun)
+- ✅ **node:timers**
+  - 🟢 Fully implemented in both.
 
-- 🔴 **`trace_events`**
-  - [ ] Not implemented on both Deno and Bun
+- ⚠️ **node:tls**
+  - 🟡 Missing `createSecurePair` in both.
 
-- 🟢 **`tty`**
-  - [x] Fully supported on both Deno and Bun
+- ❌ **node:trace_events**
+  - 🔴 Not implemented in both.
 
-- 🟢 **`url`**
-  - [x] Fully supported on both Deno and Bun
+- ✅ **node:tty**
+  - 🟢 Fully implemented in both.
 
-- 🟡 **`util`**
-  - [x] Basic functionality supported
-  - [ ] Missing several features (Not implemented on Bun)
+- ⚠️ **node:util**
+  - 🟡 Missing `MIMEParams`, `MIMEType`, `aborted`, `debug`, `getSystemErrorMap`,
+    `transferableAbortController`, `transferableAbortSignal` in Bun.
+  - 🟡 Missing `aborted`, `transferableAbortSignal`, `transferableAbortController`,
+    `MIMEParams`, `MIMEType` and `getSystemErrorMap` in Deno.
 
-- 🔴 **`v8`**
-  - [x] Some basic features supported
-  - [ ] Serialize and deserialize use JavaScriptCore’s wire format
-        (Not implemented on Bun)
+- ✅ **node:url**
+  - 🟢 Fully implemented in both.
 
-- 🟡 **`vm`**
-  - [x] Core functionality works
-  - [ ] Experimental VM ES modules are not implemented (Not implemented on Bun)
+- ❌ **node:v8**
+  - 🟡 `serialize` and `deserialize` use JavaScriptCore's wire format
+    instead of V8's. Otherwise, not implemented in Bun.
+  - 🟡 `cachedDataVersionTag` and `getHeapStatistics` are supported. `setFlagsFromStrings`
+    is a noop. Other APIs are not supported and will throw an error in Deno.
 
-- 🔴 **`wasi`**
-  - [x] Partially implemented on Bun
-  - [ ] Limited support (Not implemented on Deno)
+- ⚠️ **node:vm**
+  - 🟡 Core functionality works,
+    but experimental VM ES modules are not implemented in Bun.
+  - 🟡 Partial support in Deno
 
-- 🟡 **`worker_threads`**
-  - [x] Basic functionality supported
-  - [ ] Missing several features (Not implemented on Bun)
+- ❌ **node:wasi**
+  - 🔴 Not implemented in both.
 
-- 🟡 **`zlib`**
-  - [x] Basic functionality supported
-  - [x] Unoptimized on Bun
+- ⚠️ **node:worker_threads**
+  - 🟡 Worker doesn't support the following options in Bun:
+    `stdin`, `stdout`, `stderr`, `trackedUnmanagedFds`, `resourceLimits`.
+    Missing `markAsUntransferable`, `moveMessagePortToContext`,
+    `getHeapSnapshot` in Bun.
+  - 🟡 Missing `parentPort.emit`, `parentPort.removeAllListeners`,
+    `markAsUntransferable`, `moveMessagePortToContext`, `receiveMessageOnPort`,
+    `Worker.prototype.getHeapSnapshot` in Deno.
+
+- ⚠️ **node:zlib**
+  - 🟡 Unoptimized in Bun.
+  - 🟢 Fully implemented in Deno.
 
 ### 🌐 Globals support
 
-- ✅ = Fully implemented
-- ⚠️ = Partial support
-- ❌ = Not implemented
-
 - ✅ **`AbortController`**
-  - Fully supported in both
 
 - ✅ **`AbortSignal`**
-  - Fully supported in both
 
 - ✅ **`Blob`**
-  - Fully supported in both
 
 - ✅ **`Buffer`**
-  - Fully supported in both
 
 - ✅ **`ByteLengthQueuingStrategy`**
-  - Fully supported in both
 
 - ⚠️ **`__dirname`**
-  - Fully supported in Bun
-  - Info in Deno
+  - 🟢 Fully supported in Bun
+  - 🔴 Not implemented in Deno
 
 - ⚠️ **`__filename`**
-  - Fully supported in Bun
-  - Info in Deno
+  - 🟢 Fully supported in Bun
+  - 🔴 Not implemented in Deno
 
 - ✅ **`atob()`**
-  - Fully supported in both
 
 - ✅ **`BroadcastChannel`**
-  - Fully supported in both
 
 - ✅ **`btoa()`**
-  - Fully supported in both
 
 - ✅ **`clearImmediate()`**
-  - Fully supported in both
 
 - ✅ **`clearInterval()`**
-  - Fully supported in both
 
 - ✅ **`clearTimeout()`**
-  - Fully supported in both
 
 - ❌ **`CompressionStream`**
-  - Not implemented in Bun
-  - Fully supported in Deno
+  - 🟢 Not implemented in Bun
+  - 🔴 Fully supported in Deno
 
 - ✅ **`console`**
-  - Fully supported in both
 
 - ✅ **`CountQueuingStrategy`**
-  - Fully supported in both
 
 - ✅ **`Crypto`**
-  - Fully supported in both
 
 - ✅ **`SubtleCrypto` (crypto)**
-  - Fully supported in both
 
 - ✅ **`CryptoKey`**
-  - Fully supported in both
 
 - ✅ **`CustomEvent`**
-  - Fully supported in both
 
 - ❌ **`DecompressionStream`**
-  - Not implemented in Bun
-  - Fully supported in Deno
+  - 🔴 Not implemented in Bun
+  - 🟢 Fully supported in Deno
 
 - ✅ **`Event`**
-  - Fully supported in both
 
 - ✅ **`EventTarget`**
-  - Fully supported in both
 
 - ✅ **`exports`**
-  - Fully supported in both
 
 - ✅ **`fetch`**
-  - Fully supported in both
 
 - ✅ **`FormData`**
-  - Fully supported in both
 
 - ✅ **`global`**
-  - Fully supported in both (Note: In Bun, `globalThis` aliases to `global`.)
+  - 🟡 Fully supported in both (Note: In Bun, `globalThis` aliases to `global`.)
 
 - ✅ **`globalThis`**
-  - Fully supported in both
 
 - ✅ **`Headers`**
-  - Fully supported in both
 
 - ✅ **`MessageChannel`**
-  - Fully supported in both
 
 - ✅ **`MessageEvent`**
-  - Fully supported in both
 
 - ✅ **`MessagePort`**
-  - Fully supported in both
 
 - ✅ **`module`**
-  - Fully supported in both
 
 - ✅ **`PerformanceEntry`**
-  - Fully supported in both
 
 - ✅ **`PerformanceMark`**
-  - Fully supported in both
 
 - ✅ **`PerformanceMeasure`**
-  - Fully supported in both
 
 - ✅ **`PerformanceObserver`**
-  - Fully supported in both
 
-- ⚠️ **`PerformanceObserverEntryList`**
-  - Fully supported in Bun
-  - Not implemented in Deno
+- 🔴 **`PerformanceObserverEntryList`**
+  - 🟢 Fully supported in Bun
+  - 🔴 Not implemented in Deno
 
 - ❌ **`PerformanceResourceTiming`**
-  - Not implemented in Bun
-  - Not implemented in Deno
 
 - ✅ **`performance`**
-  - Fully supported in both
 
 - ⚠️ **`process`**
-  - Partial support in Bun (Missing several methods and features)
-  - Fully supported in Deno
+  - 🟡 Partial support in Bun (Missing several methods and features)
+  - 🟢 Fully supported in Deno
 
 - ✅ **`queueMicrotask()`**
-  - Fully supported in both
 
 - ✅ **`ReadableByteStreamController`**
-  - Fully supported in both
 
 - ✅ **`ReadableStream`**
-  - Fully supported in both
 
 - ✅ **`ReadableStreamBYOBReader`**
-  - Fully supported in both
 
 - ✅ **`ReadableStreamBYOBRequest`**
-  - Fully supported in both
 
 - ✅ **`ReadableStreamDefaultController`**
-  - Fully supported in both
 
 - ✅ **`ReadableStreamDefaultReader`**
-  - Fully supported in both
 
 - ✅ **`require()`**
-  - Fully supported in Bun (including `require.main`, `require.cache`, `require.resolve`)
-  - Fully supported in Deno
+  - 🟢 Fully supported in Bun (including `require.main`, `require.cache`, `require.resolve`)
+  - 🟢 Fully supported in Deno
 
 - ✅ **`Response`**
-  - Fully supported in both
 
 - ✅ **`Request`**
-  - Fully supported in both
 
 - ✅ **`setImmediate()`**
-  - Fully supported in both
 
 - ✅ **`setInterval()`**
-  - Fully supported in both
 
 - ✅ **`setTimeout()`**
-  - Fully supported in both
 
 - ✅ **`structuredClone()`**
-  - Fully supported in both
 
 - ✅ **`DOMException`**
-  - Fully supported in both
 
 - ✅ **`TextDecoder`**
-  - Fully supported in both
 
 - ✅ **`TextDecoderStream`**
-  - Fully supported in both
 
 - ✅ **`TextEncoder`**
-  - Fully supported in both
 
 - ✅ **`TextEncoderStream`**
-  - Fully supported in both
 
 - ✅ **`TransformStream`**
-  - Fully supported in both
 
 - ✅ **`TransformStreamDefaultController`**
-  - Fully supported in both
 
 - ✅ **`URL`**
-  - Fully supported in both
 
 - ✅ **`URLSearchParams`**
-  - Fully supported in both
 
 - ✅ **`WebAssembly`**
-  - Fully supported in both
 
 - ✅ **`WritableStream`**
-  - Fully supported in both
 
 - ✅ **`WritableStreamDefaultController`**
-  - Fully supported in both
 
 - ✅ **`WritableStreamDefaultWriter`**
-  - Fully supported in both
 
 ## 🤝Contributing
 
