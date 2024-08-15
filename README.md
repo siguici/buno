@@ -136,7 +136,7 @@ from [`NPM`](https://npmjs.com/package/buno.js) or [`JSR`](https://jsr.io/@sigui
   console.log(fullPath);
   ```
 
-## ⚙️  Node.js API Compatibility
+## ⚙️ Node.js API Compatibility
 
 Buno aims to unify and simplify cross-runtime development
 by providing a consistent interface for [Node.js APIs](https://nodejs.org/api/)
@@ -154,9 +154,163 @@ as implemented in both `Deno` and `Bun`. If you encounter any compatibility issu
 please [open an issue on GitHub](https://github.com/siguici/buno/issues/new/choose).
 Reporting such issues helps us prioritize and address gaps in compatibility.
 
-- ✅ = Full support
-- ℹ️ = Partial support
-- ❌ = Stubs only
+- 🟢 = Fully implemented
+- 🟡 = Partially implemented
+- 🔴 = Not implemented
+
+### 📦 Built-in Module Support
+
+- 🟢 **`assert`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟡 **`async_hooks`**
+  - [x] AsyncLocalStorage supported
+  - [ ] AsyncResource missing bind (Not implemented on Bun)
+
+- 🟢 **`buffer`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟡 **`child_process`**
+  - [x] Fully supported on Deno
+  - [ ] Missing proc.gid, proc.uid; Stream class not exported;
+        IPC limitations (Not implemented on Bun)
+
+- 🔴 **`cluster`**
+  - [ ] Not implemented on both Deno and Bun
+
+- 🟢 **`console`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟡 **`crypto`**
+  - [x] Fully supported on Deno
+  - [ ] Missing features like Certificate class, ECDH, X509Certificate, etc.
+        (Not implemented on Bun)
+
+- 🟡 **`dgram`**
+  - [x] Basic functionality supported
+  - [ ] Missing multiple methods (Not implemented on Bun)
+
+- 🟢 **`diagnostics_channel`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟡 **`dns`**
+  - [x] Basic functionality supported
+  - [ ] Missing options like ttl (Not implemented on Bun)
+
+- 🔴 **`domain`**
+  - [ ] Not implemented on both Deno and Bun
+
+- 🟡 **`events`**
+  - [x] Basic functionality supported
+  - [ ] Some methods and EventTarget support missing (Not implemented on Bun)
+
+- 🟡 **`fs`**
+  - [x] Fully supported on Deno
+  - [ ] Missing some encodings and lchmod (Not implemented on Bun)
+
+- 🟡 **`http`**
+  - [x] Fully supported on both Deno and Bun
+  - [ ] Some options not fully supported (Not implemented on Bun)
+
+- 🟡 **`http2`**
+  - [x] Basic client support
+  - [ ] Server functionality missing (Not implemented on Bun)
+
+- 🟡 **`https`**
+  - [x] Basic functionality supported
+  - [ ] Missing some options like cert and key array type (Not implemented on Bun)
+
+- 🔴 **`inspector`**
+  - [ ] Not implemented on both Deno and Bun
+
+- 🟡 **`module`**
+  - [x] Fully supported on Deno
+  - [ ] `register()` function not supported (Not implemented on Bun)
+
+- 🟡 **`net`**
+  - [x] Basic functionality supported
+  - [ ] Missing certain features like SocketAddress Stream (Not implemented on Bun)
+
+- 🟢 **`os`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟢 **`path`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟡 **`perf_hooks`**
+  - [x] Basic functionality supported
+  - [ ] Missing some features (Not implemented on Bun)
+
+- 🟡 **`process`**
+  - [x] Basic functionality supported
+  - [ ] Missing some features like multipleResolves (Not implemented on Bun)
+
+- 🟢 **`punycode`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟢 **`querystring`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟢 **`readline`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🔴 **`repl`**
+  - [ ] Not implemented on both Deno and Bun
+
+- 🟡 **`stream`**
+  - [x] Basic functionality supported
+  - [ ] Missing some methods (Not implemented on Bun)
+
+- 🟢 **`string_decoder`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟡 **`sys`**
+  - [x] Basic functionality supported
+  - [ ] Refer to `util` for some features (Not implemented on Bun)
+
+- 🔴 **`test`**
+  - [ ] Not implemented on Bun; Use `bun:test` instead
+
+- 🟢 **`timers`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟡 **`tls`**
+  - [x] Basic functionality supported
+  - [ ] Missing `createSecurePair` (Not implemented on Bun)
+
+- 🔴 **`trace_events`**
+  - [ ] Not implemented on both Deno and Bun
+
+- 🟢 **`tty`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟢 **`url`**
+  - [x] Fully supported on both Deno and Bun
+
+- 🟡 **`util`**
+  - [x] Basic functionality supported
+  - [ ] Missing several features (Not implemented on Bun)
+
+- 🔴 **`v8`**
+  - [x] Some basic features supported
+  - [ ] Serialize and deserialize use JavaScriptCore’s wire format
+        (Not implemented on Bun)
+
+- 🟡 **`vm`**
+  - [x] Core functionality works
+  - [ ] Experimental VM ES modules are not implemented (Not implemented on Bun)
+
+- 🔴 **`wasi`**
+  - [x] Partially implemented on Bun
+  - [ ] Limited support (Not implemented on Deno)
+
+- 🟡 **`worker_threads`**
+  - [x] Basic functionality supported
+  - [ ] Missing several features (Not implemented on Bun)
+
+- 🟡 **`zlib`**
+  - [x] Basic functionality supported
+  - [x] Unoptimized on Bun
 
 ## 🤝Contributing
 
