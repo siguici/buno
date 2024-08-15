@@ -154,11 +154,11 @@ as implemented in both `Deno` and `Bun`. If you encounter any compatibility issu
 please [open an issue on GitHub](https://github.com/siguici/buno/issues/new/choose).
 Reporting such issues helps us prioritize and address gaps in compatibility.
 
+### 📦 Built-in Module Support
+
 - 🟢 = Fully implemented
 - 🟡 = Partially implemented
 - 🔴 = Not implemented
-
-### 📦 Built-in Module Support
 
 - 🟢 **`assert`**
   - [x] Fully supported on both Deno and Bun
@@ -311,6 +311,224 @@ Reporting such issues helps us prioritize and address gaps in compatibility.
 - 🟡 **`zlib`**
   - [x] Basic functionality supported
   - [x] Unoptimized on Bun
+
+### 🌐 Globals support
+
+- ✅ = Fully implemented
+- ⚠️ = Partial support
+- ❌ = Not implemented
+
+- ✅ **`AbortController`**
+  - Fully supported in both
+
+- ✅ **`AbortSignal`**
+  - Fully supported in both
+
+- ✅ **`Blob`**
+  - Fully supported in both
+
+- ✅ **`Buffer`**
+  - Fully supported in both
+
+- ✅ **`ByteLengthQueuingStrategy`**
+  - Fully supported in both
+
+- ⚠️ **`__dirname`**
+  - Fully supported in Bun
+  - Info in Deno
+
+- ⚠️ **`__filename`**
+  - Fully supported in Bun
+  - Info in Deno
+
+- ✅ **`atob()`**
+  - Fully supported in both
+
+- ✅ **`BroadcastChannel`**
+  - Fully supported in both
+
+- ✅ **`btoa()`**
+  - Fully supported in both
+
+- ✅ **`clearImmediate()`**
+  - Fully supported in both
+
+- ✅ **`clearInterval()`**
+  - Fully supported in both
+
+- ✅ **`clearTimeout()`**
+  - Fully supported in both
+
+- ❌ **`CompressionStream`**
+  - Not implemented in Bun
+  - Fully supported in Deno
+
+- ✅ **`console`**
+  - Fully supported in both
+
+- ✅ **`CountQueuingStrategy`**
+  - Fully supported in both
+
+- ✅ **`Crypto`**
+  - Fully supported in both
+
+- ✅ **`SubtleCrypto` (crypto)**
+  - Fully supported in both
+
+- ✅ **`CryptoKey`**
+  - Fully supported in both
+
+- ✅ **`CustomEvent`**
+  - Fully supported in both
+
+- ❌ **`DecompressionStream`**
+  - Not implemented in Bun
+  - Fully supported in Deno
+
+- ✅ **`Event`**
+  - Fully supported in both
+
+- ✅ **`EventTarget`**
+  - Fully supported in both
+
+- ✅ **`exports`**
+  - Fully supported in both
+
+- ✅ **`fetch`**
+  - Fully supported in both
+
+- ✅ **`FormData`**
+  - Fully supported in both
+
+- ✅ **`global`**
+  - Fully supported in both (Note: In Bun, `globalThis` aliases to `global`.)
+
+- ✅ **`globalThis`**
+  - Fully supported in both
+
+- ✅ **`Headers`**
+  - Fully supported in both
+
+- ✅ **`MessageChannel`**
+  - Fully supported in both
+
+- ✅ **`MessageEvent`**
+  - Fully supported in both
+
+- ✅ **`MessagePort`**
+  - Fully supported in both
+
+- ✅ **`module`**
+  - Fully supported in both
+
+- ✅ **`PerformanceEntry`**
+  - Fully supported in both
+
+- ✅ **`PerformanceMark`**
+  - Fully supported in both
+
+- ✅ **`PerformanceMeasure`**
+  - Fully supported in both
+
+- ✅ **`PerformanceObserver`**
+  - Fully supported in both
+
+- ⚠️ **`PerformanceObserverEntryList`**
+  - Fully supported in Bun
+  - Not implemented in Deno
+
+- ❌ **`PerformanceResourceTiming`**
+  - Not implemented in Bun
+  - Not implemented in Deno
+
+- ✅ **`performance`**
+  - Fully supported in both
+
+- ⚠️ **`process`**
+  - Partial support in Bun (Missing several methods and features)
+  - Fully supported in Deno
+
+- ✅ **`queueMicrotask()`**
+  - Fully supported in both
+
+- ✅ **`ReadableByteStreamController`**
+  - Fully supported in both
+
+- ✅ **`ReadableStream`**
+  - Fully supported in both
+
+- ✅ **`ReadableStreamBYOBReader`**
+  - Fully supported in both
+
+- ✅ **`ReadableStreamBYOBRequest`**
+  - Fully supported in both
+
+- ✅ **`ReadableStreamDefaultController`**
+  - Fully supported in both
+
+- ✅ **`ReadableStreamDefaultReader`**
+  - Fully supported in both
+
+- ✅ **`require()`**
+  - Fully supported in Bun (including `require.main`, `require.cache`, `require.resolve`)
+  - Fully supported in Deno
+
+- ✅ **`Response`**
+  - Fully supported in both
+
+- ✅ **`Request`**
+  - Fully supported in both
+
+- ✅ **`setImmediate()`**
+  - Fully supported in both
+
+- ✅ **`setInterval()`**
+  - Fully supported in both
+
+- ✅ **`setTimeout()`**
+  - Fully supported in both
+
+- ✅ **`structuredClone()`**
+  - Fully supported in both
+
+- ✅ **`DOMException`**
+  - Fully supported in both
+
+- ✅ **`TextDecoder`**
+  - Fully supported in both
+
+- ✅ **`TextDecoderStream`**
+  - Fully supported in both
+
+- ✅ **`TextEncoder`**
+  - Fully supported in both
+
+- ✅ **`TextEncoderStream`**
+  - Fully supported in both
+
+- ✅ **`TransformStream`**
+  - Fully supported in both
+
+- ✅ **`TransformStreamDefaultController`**
+  - Fully supported in both
+
+- ✅ **`URL`**
+  - Fully supported in both
+
+- ✅ **`URLSearchParams`**
+  - Fully supported in both
+
+- ✅ **`WebAssembly`**
+  - Fully supported in both
+
+- ✅ **`WritableStream`**
+  - Fully supported in both
+
+- ✅ **`WritableStreamDefaultController`**
+  - Fully supported in both
+
+- ✅ **`WritableStreamDefaultWriter`**
+  - Fully supported in both
 
 ## 🤝Contributing
 
