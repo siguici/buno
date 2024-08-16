@@ -21,7 +21,7 @@ fs.readdir(directoryPath, (err, files) => {
           if (err) {
             throw err;
           }
-          console.log('[\x1b[32m+\x1b[0m]', `${file} denoified`);
+          console.log('\x1b[32m', `✏️  ${filePath} fixed`);
         });
       });
     }

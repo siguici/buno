@@ -36,6 +36,7 @@ await build({
         `${distDir}/${entryPoint.name}`,
       );
       console.log(
+        '\x1b[32m',
         `🚚 ${outDir}/esm/${entryPoint.name} -> ${distDir}/${entryPoint.name}`,
       );
     }

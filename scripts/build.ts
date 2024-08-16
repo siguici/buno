@@ -44,10 +44,9 @@ function bunify(
       const relative = entryPoint.substring(srcdir.length + 1);
       const outfile = path.join(outdir, relative);
       fs.copyFileSync(entryPoint, outfile);
-      console.log('\x1b[32m', `${entryPoint} bunified to ${outfile}`);
+      console.log('\x1b[32m', `🚚 ${entryPoint} -> ${outfile}`);
     }
   }
-  process.exit();
 }
 
 function getBuildOptions(
@@ -106,7 +105,7 @@ async function outputSize(file: string) {
   const bytes = zlib.brotliCompressSync(content).length;
   const size = bytesToSize(bytes);
 
-  console.log('\x1b[32m', `${file} bundle size: ${size}`);
+  console.log('[\x1b[32m+\x1b[0m]', `📦️ ${file} bundle size: ${size}`);
 }
 
 function bytesToSize(bytes: number): string {
