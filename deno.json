@@ -1,6 +1,6 @@
 {
   "name": "@siguici/buno",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "exports": {
     ".": "./jsr/index.ts",
     "./assert": "./jsr/assert.ts",

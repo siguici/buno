@@ -1,0 +1,61 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:cross-fetch@4.0.0": "npm:cross-fetch@4.0.0",
+      "npm:urlpattern-polyfill@10.0.0": "npm:urlpattern-polyfill@10.0.0"
+    },
+    "npm": {
+      "cross-fetch@4.0.0": {
+        "integrity": "sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==",
+        "dependencies": {
+          "node-fetch": "node-fetch@2.7.0"
+        }
+      },
+      "node-fetch@2.7.0": {
+        "integrity": "sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==",
+        "dependencies": {
+          "whatwg-url": "whatwg-url@5.0.0"
+        }
+      },
+      "tr46@0.0.3": {
+        "integrity": "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==",
+        "dependencies": {}
+      },
+      "urlpattern-polyfill@10.0.0": {
+        "integrity": "sha512-H/A06tKD7sS1O1X2SshBVeA5FLycRpjqiBeqGKmBwBDBy28EnRjORxTNe269KSSr5un5qyWi1iL61wLxpd+ZOg==",
+        "dependencies": {}
+      },
+      "webidl-conversions@3.0.1": {
+        "integrity": "sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==",
+        "dependencies": {}
+      },
+      "whatwg-url@5.0.0": {
+        "integrity": "sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==",
+        "dependencies": {
+          "tr46": "tr46@0.0.3",
+          "webidl-conversions": "webidl-conversions@3.0.1"
+        }
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@biomejs/biome@^1.8.3",
+        "npm:@types/bun@^1.1.6",
+        "npm:@types/node@^22.3.0",
+        "npm:cross-fetch@^4.0.0",
+        "npm:denoify@^1.6.13",
+        "npm:esbuild@^0.23.0",
+        "npm:globby@^14.0.2",
+        "npm:knip@^5.27.2",
+        "npm:rimraf@^6.0.1",
+        "npm:tslib@^2.6.3",
+        "npm:typescript@^5.5.4",
+        "npm:urlpattern-polyfill@^10.0.0"
+      ]
+    }
+  }
+}
