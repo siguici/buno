@@ -2,7 +2,7 @@
   "name": "buno.js",
   "version": "0.1.0",
   "private": false,
-  "sideEffects": false,
+  "sideEffects": true,
   "type": "module",
   "license": "MIT",
   "engines": {
