@@ -1,4 +1,6 @@
 src/
+jsr/
+tmp/
 scripts/
 tests/
 biome.json
