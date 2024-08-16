@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "exports": {
     ".": "./jsr/index.ts",
+    "./polyfill": "./jsr/polyfill.ts",
     "./assert": "./jsr/assert.ts",
     "./async_hooks": "./jsr/async_hooks.ts",
     "./buffer": "./jsr/buffer.ts",

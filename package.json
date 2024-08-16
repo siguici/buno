@@ -44,6 +44,12 @@
       "import": "./js/index.mjs",
       "require": "./js/index.cjs"
     },
+    "./polyfill": {
+      "types": "./ts/polyfill.d.ts",
+      "default": "./js/polyfill.js",
+      "import": "./js/polyfill.mjs",
+      "require": "./js/polyfill.cjs"
+    },
     "./assert": {
       "types": "./ts/assert.d.ts",
       "default": "./js/assert.js",
