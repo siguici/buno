@@ -63,14 +63,14 @@ function getBuildOptions(
     platform: 'node',
     bundle: true,
     minify,
-    format: format ?? format,
+    format: format ?? defaultFormat,
     sourcemap: !minify,
     outExtension:
       format === 'cjs'
         ? { '.js': '.cjs' }
         : format === 'esm'
           ? { '.js': '.mjs' }
-          : { '.js': `.${defaultFormat}` },
+          : { '.js': '.js' },
     define,
   };
 }
