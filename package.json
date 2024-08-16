@@ -275,5 +275,9 @@
     "rimraf": "^6.0.1",
     "tslib": "^2.6.3",
     "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "cross-fetch": "^4.0.0",
+    "urlpattern-polyfill": "^10.0.0"
   }
 }
