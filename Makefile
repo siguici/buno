@@ -1,4 +1,4 @@
-.PHONY: install check fix build publish deno
+.PHONY: install check fix build dist publish deno
 
 install: node_modules bun.lockb
 
@@ -17,10 +17,15 @@ fix: install
 build: check
 	bun run build
 
-verify: build
+jsr: build
+
+npm: jsr
+	deno task build
+
+dist: jsr npm
 	deno task fix
 	deno task check
 
-publish: verify
+publish: dist
 	npm publish
 	git push && git push --tags

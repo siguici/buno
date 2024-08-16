@@ -38,7 +38,7 @@
     "./worker_threads": "./jsr/worker_threads.ts",
     "./zlib": "./jsr/zlib.ts"
   },
-  "include": ["./deno.json", "jsr/*.ts", "README.md"],
+  "include": ["./deno.json", "jsr/*.ts", "npm/*.js", "README.md"],
   "exclude": [
     ".*",
     "jsr/*.test.ts",
@@ -60,7 +60,7 @@
       "README.md",
       "LICENSE.md"
     ],
-    "exclude": ["!jsr/*.ts"]
+    "exclude": ["!jsr/*.ts", "npm/*.js"]
   },
   "compilerOptions": {
     "lib": [
@@ -82,10 +82,11 @@
     "proseWrap": "preserve"
   },
   "tasks": {
+    "build": "deno run -A scripts/nodify.ts",
     "check": "deno task check:fmt && deno task check:lint && deno task check:types",
     "check:fmt": "deno fmt --check",
     "check:lint": "deno lint",
-    "check:types": "deno check jsr/*.ts",
+    "check:types": "deno check jsr/*.ts npm/*.js",
     "fix": "deno lint --fix && deno fmt"
   }
 }
