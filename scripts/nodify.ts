@@ -27,8 +27,8 @@ await build({
     },
   },
   async postBuild() {
-    await emptyDir('npm');
-    await Deno.rename('tmp/esm', 'npm');
+    await emptyDir('deno');
+    await Deno.rename('tmp/esm', 'deno');
     await emptyDir('tmp');
   },
 });

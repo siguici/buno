@@ -33,290 +33,290 @@
     "API",
     "compatibility"
   ],
-  "module": "./js/index.js",
-  "main": "./js/index.js",
-  "types": "./ts/",
-  "files": ["js/**/*", "ts/**/*", "jsr/**/*"],
+  "module": "./node/index.js",
+  "main": "./node/index.js",
+  "types": "./node/",
+  "files": ["node/**/*", "deno/**/*"],
   "exports": {
     ".": {
-      "bun": "./ts/index.ts",
-      "deno": "./npm/index.js",
-      "types": "./ts/index.d.ts",
-      "default": "./js/index.js",
-      "import": "./js/index.mjs",
-      "require": "./js/index.cjs"
+      "bun": "./node/index.ts",
+      "deno": "./deno/index.js",
+      "types": "./node/index.d.ts",
+      "default": "./node/index.js",
+      "import": "./node/index.mjs",
+      "require": "./node/index.cjs"
     },
     "./polyfill": {
-      "bun": "./ts/polyfill.ts",
-      "deno": "./npm/polyfill.js",
-      "types": "./ts/polyfill.d.ts",
-      "default": "./js/polyfill.js",
-      "import": "./js/polyfill.mjs",
-      "require": "./js/polyfill.cjs"
+      "bun": "./node/polyfill.ts",
+      "deno": "./deno/polyfill.js",
+      "types": "./node/polyfill.d.ts",
+      "default": "./node/polyfill.js",
+      "import": "./node/polyfill.mjs",
+      "require": "./node/polyfill.cjs"
     },
     "./assert": {
-      "bun": "./ts/assert.ts",
-      "deno": "./npm/assert.js",
-      "types": "./ts/assert.d.ts",
-      "default": "./js/assert.js",
-      "import": "./js/assert.mjs",
-      "require": "./js/assert.cjs"
+      "bun": "./node/assert.ts",
+      "deno": "./deno/assert.js",
+      "types": "./node/assert.d.ts",
+      "default": "./node/assert.js",
+      "import": "./node/assert.mjs",
+      "require": "./node/assert.cjs"
     },
     "./async_hooks": {
-      "bun": "./ts/async_hooks.ts",
-      "deno": "./npm/async_hooks.js",
-      "types": "./ts/async_hooks.d.ts",
-      "default": "./js/async_hooks.js",
-      "import": "./js/async_hooks.mjs",
-      "require": "./js/async_hooks.cjs"
+      "bun": "./node/async_hooks.ts",
+      "deno": "./deno/async_hooks.js",
+      "types": "./node/async_hooks.d.ts",
+      "default": "./node/async_hooks.js",
+      "import": "./node/async_hooks.mjs",
+      "require": "./node/async_hooks.cjs"
     },
     "./buffer": {
-      "bun": "./ts/buffer.ts",
-      "deno": "./npm/buffer.js",
-      "types": "./ts/buffer.d.ts",
-      "default": "./js/buffer.js",
-      "import": "./js/buffer.mjs",
-      "require": "./js/buffer.cjs"
+      "bun": "./node/buffer.ts",
+      "deno": "./deno/buffer.js",
+      "types": "./node/buffer.d.ts",
+      "default": "./node/buffer.js",
+      "import": "./node/buffer.mjs",
+      "require": "./node/buffer.cjs"
     },
     "./child_process": {
-      "bun": "./ts/child_process.ts",
-      "deno": "./npm/child_process.js",
-      "types": "./ts/child_process.d.ts",
-      "default": "./js/child_process.js",
-      "import": "./js/child_process.mjs",
-      "require": "./js/child_process.cjs"
+      "bun": "./node/child_process.ts",
+      "deno": "./deno/child_process.js",
+      "types": "./node/child_process.d.ts",
+      "default": "./node/child_process.js",
+      "import": "./node/child_process.mjs",
+      "require": "./node/child_process.cjs"
     },
     "./console": {
-      "bun": "./ts/console.ts",
-      "deno": "./npm/console.js",
-      "types": "./ts/console.d.ts",
-      "default": "./js/console.js",
-      "import": "./js/console.mjs",
-      "require": "./js/console.cjs"
+      "bun": "./node/console.ts",
+      "deno": "./deno/console.js",
+      "types": "./node/console.d.ts",
+      "default": "./node/console.js",
+      "import": "./node/console.mjs",
+      "require": "./node/console.cjs"
     },
     "./crypto": {
-      "bun": "./ts/crypto.ts",
-      "deno": "./npm/crypto.js",
-      "types": "./ts/crypto.d.ts",
-      "default": "./js/crypto.js",
-      "import": "./js/crypto.mjs",
-      "require": "./js/crypto.cjs"
+      "bun": "./node/crypto.ts",
+      "deno": "./deno/crypto.js",
+      "types": "./node/crypto.d.ts",
+      "default": "./node/crypto.js",
+      "import": "./node/crypto.mjs",
+      "require": "./node/crypto.cjs"
     },
     "./dgram": {
-      "bun": "./ts/dgram.ts",
-      "deno": "./npm/dgram.js",
-      "types": "./ts/dgram.d.ts",
-      "default": "./js/dgram.js",
-      "import": "./js/dgram.mjs",
-      "require": "./js/dgram.cjs"
+      "bun": "./node/dgram.ts",
+      "deno": "./deno/dgram.js",
+      "types": "./node/dgram.d.ts",
+      "default": "./node/dgram.js",
+      "import": "./node/dgram.mjs",
+      "require": "./node/dgram.cjs"
     },
     "./diagnostics_channel": {
-      "bun": "./ts/diagnostics_channel.ts",
-      "deno": "./npm/diagnostics_channel.js",
-      "types": "./ts/diagnostics_channel.d.ts",
-      "default": "./js/diagnostics_channel.js",
-      "import": "./js/diagnostics_channel.mjs",
-      "require": "./js/diagnostics_channel.cjs"
+      "bun": "./node/diagnostics_channel.ts",
+      "deno": "./deno/diagnostics_channel.js",
+      "types": "./node/diagnostics_channel.d.ts",
+      "default": "./node/diagnostics_channel.js",
+      "import": "./node/diagnostics_channel.mjs",
+      "require": "./node/diagnostics_channel.cjs"
     },
     "./dns": {
-      "bun": "./ts/dns.ts",
-      "deno": "./npm/dns.js",
-      "types": "./ts/dns.d.ts",
-      "default": "./js/dns.js",
-      "import": "./js/dns.mjs",
-      "require": "./js/dns.cjs"
+      "bun": "./node/dns.ts",
+      "deno": "./deno/dns.js",
+      "types": "./node/dns.d.ts",
+      "default": "./node/dns.js",
+      "import": "./node/dns.mjs",
+      "require": "./node/dns.cjs"
     },
     "./events": {
-      "bun": "./ts/events.ts",
-      "deno": "./npm/events.js",
-      "types": "./ts/events.d.ts",
-      "default": "./js/events.js",
-      "import": "./js/events.mjs",
-      "require": "./js/events.cjs"
+      "bun": "./node/events.ts",
+      "deno": "./deno/events.js",
+      "types": "./node/events.d.ts",
+      "default": "./node/events.js",
+      "import": "./node/events.mjs",
+      "require": "./node/events.cjs"
     },
     "./fs": {
-      "bun": "./ts/fs.ts",
-      "deno": "./npm/fs.js",
-      "types": "./ts/fs.d.ts",
-      "default": "./js/fs.js",
-      "import": "./js/fs.mjs",
-      "require": "./js/fs.cjs"
+      "bun": "./node/fs.ts",
+      "deno": "./deno/fs.js",
+      "types": "./node/fs.d.ts",
+      "default": "./node/fs.js",
+      "import": "./node/fs.mjs",
+      "require": "./node/fs.cjs"
     },
     "./http": {
-      "bun": "./ts/http.ts",
-      "deno": "./npm/http.js",
-      "types": "./ts/http.d.ts",
-      "default": "./js/http.js",
-      "import": "./js/http.mjs",
-      "require": "./js/http.cjs"
+      "bun": "./node/http.ts",
+      "deno": "./deno/http.js",
+      "types": "./node/http.d.ts",
+      "default": "./node/http.js",
+      "import": "./node/http.mjs",
+      "require": "./node/http.cjs"
     },
     "./http2": {
-      "bun": "./ts/http2.ts",
-      "deno": "./npm/http2.js",
-      "types": "./ts/http2.d.ts",
-      "default": "./js/http2.js",
-      "import": "./js/http2.mjs",
-      "require": "./js/http2.cjs"
+      "bun": "./node/http2.ts",
+      "deno": "./deno/http2.js",
+      "types": "./node/http2.d.ts",
+      "default": "./node/http2.js",
+      "import": "./node/http2.mjs",
+      "require": "./node/http2.cjs"
     },
     "./https": {
-      "bun": "./ts/https.ts",
-      "deno": "./npm/https.js",
-      "types": "./ts/https.d.ts",
-      "default": "./js/https.js",
-      "import": "./js/https.mjs",
-      "require": "./js/https.cjs"
+      "bun": "./node/https.ts",
+      "deno": "./deno/https.js",
+      "types": "./node/https.d.ts",
+      "default": "./node/https.js",
+      "import": "./node/https.mjs",
+      "require": "./node/https.cjs"
     },
     "./module": {
-      "bun": "./ts/module.ts",
-      "deno": "./npm/module.js",
-      "types": "./ts/module.d.ts",
-      "default": "./js/module.js",
-      "import": "./js/module.mjs",
-      "require": "./js/module.cjs"
+      "bun": "./node/module.ts",
+      "deno": "./deno/module.js",
+      "types": "./node/module.d.ts",
+      "default": "./node/module.js",
+      "import": "./node/module.mjs",
+      "require": "./node/module.cjs"
     },
     "./net": {
-      "bun": "./ts/net.ts",
-      "deno": "./npm/net.js",
-      "types": "./ts/net.d.ts",
-      "default": "./js/net.js",
-      "import": "./js/net.mjs",
-      "require": "./js/net.cjs"
+      "bun": "./node/net.ts",
+      "deno": "./deno/net.js",
+      "types": "./node/net.d.ts",
+      "default": "./node/net.js",
+      "import": "./node/net.mjs",
+      "require": "./node/net.cjs"
     },
     "./os": {
-      "bun": "./ts/os.ts",
-      "deno": "./npm/os.js",
-      "types": "./ts/os.d.ts",
-      "default": "./js/os.js",
-      "import": "./js/os.mjs",
-      "require": "./js/os.cjs"
+      "bun": "./node/os.ts",
+      "deno": "./deno/os.js",
+      "types": "./node/os.d.ts",
+      "default": "./node/os.js",
+      "import": "./node/os.mjs",
+      "require": "./node/os.cjs"
     },
     "./path": {
-      "bun": "./ts/path.ts",
-      "deno": "./npm/path.js",
-      "types": "./ts/path.d.ts",
-      "default": "./js/path.js",
-      "import": "./js/path.mjs",
-      "require": "./js/path.cjs"
+      "bun": "./node/path.ts",
+      "deno": "./deno/path.js",
+      "types": "./node/path.d.ts",
+      "default": "./node/path.js",
+      "import": "./node/path.mjs",
+      "require": "./node/path.cjs"
     },
     "./perf_hooks": {
-      "bun": "./ts/perf_hooks.ts",
-      "deno": "./npm/perf_hooks.js",
-      "types": "./ts/perf_hooks.d.ts",
-      "default": "./js/perf_hooks.js",
-      "import": "./js/perf_hooks.mjs",
-      "require": "./js/perf_hooks.cjs"
+      "bun": "./node/perf_hooks.ts",
+      "deno": "./deno/perf_hooks.js",
+      "types": "./node/perf_hooks.d.ts",
+      "default": "./node/perf_hooks.js",
+      "import": "./node/perf_hooks.mjs",
+      "require": "./node/perf_hooks.cjs"
     },
     "./process": {
-      "bun": "./ts/process.ts",
-      "deno": "./npm/process.js",
-      "types": "./ts/process.d.ts",
-      "default": "./js/process.js",
-      "import": "./js/process.mjs",
-      "require": "./js/process.cjs"
+      "bun": "./node/process.ts",
+      "deno": "./deno/process.js",
+      "types": "./node/process.d.ts",
+      "default": "./node/process.js",
+      "import": "./node/process.mjs",
+      "require": "./node/process.cjs"
     },
     "./punycode": {
-      "bun": "./ts/punycode.ts",
-      "deno": "./npm/punycode.js",
-      "types": "./ts/punycode.d.ts",
-      "default": "./js/punycode.js",
-      "import": "./js/punycode.mjs",
-      "require": "./js/punycode.cjs"
+      "bun": "./node/punycode.ts",
+      "deno": "./deno/punycode.js",
+      "types": "./node/punycode.d.ts",
+      "default": "./node/punycode.js",
+      "import": "./node/punycode.mjs",
+      "require": "./node/punycode.cjs"
     },
     "./querystring": {
-      "bun": "./ts/querystring.ts",
-      "deno": "./npm/querystring.js",
-      "types": "./ts/querystring.d.ts",
-      "default": "./js/querystring.js",
-      "import": "./js/querystring.mjs",
-      "require": "./js/querystring.cjs"
+      "bun": "./node/querystring.ts",
+      "deno": "./deno/querystring.js",
+      "types": "./node/querystring.d.ts",
+      "default": "./node/querystring.js",
+      "import": "./node/querystring.mjs",
+      "require": "./node/querystring.cjs"
     },
     "./readline": {
-      "bun": "./ts/readline.ts",
-      "deno": "./npm/readline.js",
-      "types": "./ts/readline.d.ts",
-      "default": "./js/readline.js",
-      "import": "./js/readline.mjs",
-      "require": "./js/readline.cjs"
+      "bun": "./node/readline.ts",
+      "deno": "./deno/readline.js",
+      "types": "./node/readline.d.ts",
+      "default": "./node/readline.js",
+      "import": "./node/readline.mjs",
+      "require": "./node/readline.cjs"
     },
     "./stream": {
-      "bun": "./ts/stream.ts",
-      "deno": "./npm/stream.js",
-      "types": "./ts/stream.d.ts",
-      "default": "./js/stream.js",
-      "import": "./js/stream.mjs",
-      "require": "./js/stream.cjs"
+      "bun": "./node/stream.ts",
+      "deno": "./deno/stream.js",
+      "types": "./node/stream.d.ts",
+      "default": "./node/stream.js",
+      "import": "./node/stream.mjs",
+      "require": "./node/stream.cjs"
     },
     "./string_decoder": {
-      "bun": "./ts/string_decoder.ts",
-      "deno": "./npm/string_decoder.js",
-      "types": "./ts/string_decoder.d.ts",
-      "default": "./js/string_decoder.js",
-      "import": "./js/string_decoder.mjs",
-      "require": "./js/string_decoder.cjs"
+      "bun": "./node/string_decoder.ts",
+      "deno": "./deno/string_decoder.js",
+      "types": "./node/string_decoder.d.ts",
+      "default": "./node/string_decoder.js",
+      "import": "./node/string_decoder.mjs",
+      "require": "./node/string_decoder.cjs"
     },
     "./timers": {
-      "bun": "./ts/timers.ts",
-      "deno": "./npm/timers.js",
-      "types": "./ts/timers.d.ts",
-      "default": "./js/timers.js",
-      "import": "./js/timers.mjs",
-      "require": "./js/timers.cjs"
+      "bun": "./node/timers.ts",
+      "deno": "./deno/timers.js",
+      "types": "./node/timers.d.ts",
+      "default": "./node/timers.js",
+      "import": "./node/timers.mjs",
+      "require": "./node/timers.cjs"
     },
     "./tls": {
-      "bun": "./ts/tls.ts",
-      "deno": "./npm/tls.js",
-      "types": "./ts/tls.d.ts",
-      "default": "./js/tls.js",
-      "import": "./js/tls.mjs",
-      "require": "./js/tls.cjs"
+      "bun": "./node/tls.ts",
+      "deno": "./deno/tls.js",
+      "types": "./node/tls.d.ts",
+      "default": "./node/tls.js",
+      "import": "./node/tls.mjs",
+      "require": "./node/tls.cjs"
     },
     "./tty": {
-      "bun": "./ts/tty.ts",
-      "deno": "./npm/tty.js",
-      "types": "./ts/tty.d.ts",
-      "default": "./js/tty.js",
-      "import": "./js/tty.mjs",
-      "require": "./js/tty.cjs"
+      "bun": "./node/tty.ts",
+      "deno": "./deno/tty.js",
+      "types": "./node/tty.d.ts",
+      "default": "./node/tty.js",
+      "import": "./node/tty.mjs",
+      "require": "./node/tty.cjs"
     },
     "./url": {
-      "bun": "./ts/url.ts",
-      "deno": "./npm/url.js",
-      "types": "./ts/url.d.ts",
-      "default": "./js/url.js",
-      "import": "./js/url.mjs",
-      "require": "./js/url.cjs"
+      "bun": "./node/url.ts",
+      "deno": "./deno/url.js",
+      "types": "./node/url.d.ts",
+      "default": "./node/url.js",
+      "import": "./node/url.mjs",
+      "require": "./node/url.cjs"
     },
     "./util": {
-      "bun": "./ts/util.ts",
-      "deno": "./npm/util.js",
-      "types": "./ts/util.d.ts",
-      "default": "./js/util.js",
-      "import": "./js/util.mjs",
-      "require": "./js/util.cjs"
+      "bun": "./node/util.ts",
+      "deno": "./deno/util.js",
+      "types": "./node/util.d.ts",
+      "default": "./node/util.js",
+      "import": "./node/util.mjs",
+      "require": "./node/util.cjs"
     },
     "./vm": {
-      "bun": "./ts/vm.ts",
-      "deno": "./npm/vm.js",
-      "types": "./ts/vm.d.ts",
-      "default": "./js/vm.js",
-      "import": "./js/vm.mjs",
-      "require": "./js/vm.cjs"
+      "bun": "./node/vm.ts",
+      "deno": "./deno/vm.js",
+      "types": "./node/vm.d.ts",
+      "default": "./node/vm.js",
+      "import": "./node/vm.mjs",
+      "require": "./node/vm.cjs"
     },
     "./worker_threads": {
-      "bun": "./ts/worker_threads.ts",
-      "deno": "./npm/worker_threads.js",
-      "types": "./ts/worker_threads.d.ts",
-      "default": "./js/worker_threads.js",
-      "import": "./js/worker_threads.mjs",
-      "require": "./js/worker_threads.cjs"
+      "bun": "./node/worker_threads.ts",
+      "deno": "./deno/worker_threads.js",
+      "types": "./node/worker_threads.d.ts",
+      "default": "./node/worker_threads.js",
+      "import": "./node/worker_threads.mjs",
+      "require": "./node/worker_threads.cjs"
     },
     "./zlib": {
-      "bun": "./ts/zlib.ts",
-      "deno": "./npm/zlib.js",
-      "types": "./ts/zlib.d.ts",
-      "default": "./js/zlib.js",
-      "import": "./js/zlib.mjs",
-      "require": "./js/zlib.cjs"
+      "bun": "./node/zlib.ts",
+      "deno": "./deno/zlib.js",
+      "types": "./node/zlib.d.ts",
+      "default": "./node/zlib.js",
+      "import": "./node/zlib.mjs",
+      "require": "./node/zlib.cjs"
     },
     "./deno.json": "./deno.json",
     "./package.json": "./package.json",
@@ -324,14 +324,12 @@
   },
   "scripts": {
     "build": "bun run build.node && bun run build.deno",
-    "build.node": "bun run clear.node && tsc --build && bun scripts/build.ts",
-    "build.deno": "bun run clear.deno && denoify --out jsr && bun scripts/denoify.ts",
+    "build.node": "rimraf node/* && tsc --build && bun scripts/build.ts",
+    "build.deno": "rimraf jsr/* && denoify --out jsr && bun scripts/denoify.ts",
     "check": "biome ci . && knip",
     "check.format": "biome format .",
     "check.lint": "biome check .",
     "clear": "bun run clear.node && bun run clear.deno",
-    "clear.node": "rimraf js && rimraf ts",
-    "clear.deno": "rimraf jsr/*",
     "denoify": "denoify",
     "debug": "bun check && bun test",
     "fix": "bun run unsed && bun lint && bun format",

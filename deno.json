@@ -38,12 +38,11 @@
     "./worker_threads": "./jsr/worker_threads.ts",
     "./zlib": "./jsr/zlib.ts"
   },
-  "include": ["./deno.json", "jsr/*.ts", "npm/*.js", "README.md"],
+  "include": ["./deno.json", "jsr/*.ts", "deno/*.js", "README.md"],
   "exclude": [
     ".*",
     "jsr/*.test.ts",
-    "js/*",
-    "ts/*",
+    "node/*",
     "src/*",
     "scripts/*",
     "tests/*",
@@ -60,7 +59,7 @@
       "README.md",
       "LICENSE.md"
     ],
-    "exclude": ["!jsr/*.ts", "npm/*.js"]
+    "exclude": ["!jsr/*.ts", "deno/*.js"]
   },
   "compilerOptions": {
     "lib": [
@@ -86,7 +85,7 @@
     "check": "deno task check:fmt && deno task check:lint && deno task check:types",
     "check:fmt": "deno fmt --check",
     "check:lint": "deno lint",
-    "check:types": "deno check jsr/*.ts npm/*.js",
+    "check:types": "deno check jsr/*.ts deno/*.js",
     "fix": "deno lint --fix && deno fmt"
   }
 }

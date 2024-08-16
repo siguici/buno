@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "organizeImports": {
     "enabled": true,
-    "ignore": ["node_modules", "jsr", "js", "ts"]
+    "ignore": ["node_modules", "jsr", "deno", "node"]
   },
   "linter": {
     "enabled": true,
@@ -19,14 +19,14 @@
         "noExplicitAny": "off"
       }
     },
-    "ignore": ["node_modules", "jsr", "js", "ts"]
+    "ignore": ["node_modules", "jsr", "deno", "node"]
   },
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
     "indentStyle": "space",
     "lineWidth": 80,
-    "ignore": ["node_modules", "jsr", "js", "ts"]
+    "ignore": ["node_modules", "jsr", "deno", "node"]
   },
   "javascript": {
     "formatter": {

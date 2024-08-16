@@ -51,7 +51,7 @@ jobs:
         run: deno task build
 
       - name: 🗃️ List distribution files
-        run: ls -la jsr npm
+        run: ls -la jsr deno
 
       - name: 🚨 Fix code style
         run: deno task fix

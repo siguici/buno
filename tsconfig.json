@@ -1,11 +1,11 @@
 {
   "include": ["src"],
-  "exclude": ["node_modules", "js/**/*", "ts/**/*", "src/**/*.deno.ts"],
+  "exclude": ["node_modules", "deno/**/*", "node/**/*", "src/**/*.deno.ts"],
   "compilerOptions": {
     "strict": true,
-    "outDir": "js",
+    "outDir": "node",
     "declaration": true,
-    "declarationDir": "ts",
+    "declarationDir": "node",
     "lib": ["ESNext", "DOM", "webworker", "DOM.Iterable"],
     "module": "ESNext",
     "target": "ESNext",
