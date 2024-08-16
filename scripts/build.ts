@@ -18,13 +18,36 @@ const defaultFormat =
 const outdir = tsconfig.compilerOptions.outDir;
 const target = tsconfig.compilerOptions.target || 'default';
 const watch = process.argv.includes('--watch');
+const dtsdir = tsconfig.compilerOptions.declarationDir || outdir;
 
+bunify(entryPoints, dtsdir);
 build(entryPoints, outdir, target, [undefined, 'cjs', 'esm'], true, watch);
 
 const files = fs.readdirSync(outdir);
 for (const file of files) {
   const filePath = path.join(outdir, file);
   await outputSize(filePath);
+}
+
+function bunify(
+  entryPoints: string[],
+  outdir: string,
+  srcdir = 'src',
+  ext = 'ts',
+) {
+  if (!fs.existsSync(outdir)) {
+    fs.mkdirSync(outdir, { recursive: true });
+  }
+
+  for (const entryPoint of entryPoints) {
+    if (entryPoint.startsWith(`${srcdir}/`) && entryPoint.endsWith(`.${ext}`)) {
+      const relative = entryPoint.substring(srcdir.length + 1);
+      const outfile = path.join(outdir, relative);
+      fs.copyFileSync(entryPoint, outfile);
+      console.log('\x1b[32m', `${entryPoint} bunified to ${outfile}`);
+    }
+  }
+  process.exit();
 }
 
 function getBuildOptions(

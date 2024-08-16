@@ -1,8 +1,10 @@
+src/
 jsr/
 scripts/
 tests/
 biome.json
 deno.lock
+tsconfig.json
 *.config.ts
 *.config.?ts
 js/*.tsbuildinfo
