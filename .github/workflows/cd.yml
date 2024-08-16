@@ -43,7 +43,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: deno_dist
-          path: jsr
+          path: deno
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -51,7 +51,7 @@ jobs:
         run: deno task build
 
       - name: 🗃️ List distribution files
-        run: ls -la jsr deno
+        run: ls -la deno
 
       - name: 🚨 Fix code style
         run: deno task fix

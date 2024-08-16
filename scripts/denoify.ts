@@ -1,6 +1,6 @@
 import { fs, path } from '../src';
 
-const directoryPath = path.resolve(import.meta.dir, '..', 'jsr');
+const directoryPath = path.resolve(import.meta.dir, '..', 'deno');
 
 fs.readdir(directoryPath, (err, files) => {
   if (err) {

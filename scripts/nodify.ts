@@ -1,6 +1,9 @@
 import { build, emptyDir } from 'jsr:@deno/dnt';
 
-await emptyDir('./tmp');
+const outDir = './tmp';
+const distDir = './deno';
+
+await emptyDir(outDir);
 
 await build({
   importMap: 'deno.json',
@@ -8,8 +11,8 @@ await build({
   test: false,
   declaration: true,
   scriptModule: false,
-  entryPoints: ['./jsr/mod.ts'],
-  outDir: './tmp',
+  entryPoints: ['./deno/mod.ts'],
+  outDir,
   shims: {
     deno: true,
   },
@@ -27,8 +30,15 @@ await build({
     },
   },
   async postBuild() {
-    await emptyDir('deno');
-    await Deno.rename('tmp/esm', 'deno');
-    await emptyDir('tmp');
+    for await (const entryPoint of Deno.readDir(`${outDir}/esm`)) {
+      await Deno.rename(
+        `${outDir}/esm/${entryPoint.name}`,
+        `${distDir}/${entryPoint.name}`,
+      );
+      console.log(
+        `🚚 ${outDir}/esm/${entryPoint.name} -> ${distDir}/${entryPoint.name}`,
+      );
+    }
+    await emptyDir(outDir);
   },
 });
