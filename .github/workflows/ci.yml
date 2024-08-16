@@ -15,7 +15,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        bun: [1.1.24]
+        bun: [1.1.25]
         experimental: [false]
     name: 👷 CI Bun-${{ matrix.bun }} on ${{ matrix.os }}
 
