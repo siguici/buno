@@ -44,13 +44,6 @@
       "import": "./node/index.mjs",
       "require": "./node/index.cjs"
     },
-    "./polyfill": {
-      "bun": "./node/polyfill.ts",
-      "deno": "./deno/polyfill.js",
-      "types": "./node/polyfill.d.ts",
-      "import": "./node/polyfill.mjs",
-      "require": "./node/polyfill.cjs"
-    },
     "./assert": {
       "bun": "./node/assert.ts",
       "deno": "./deno/assert.js",

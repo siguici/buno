@@ -3,7 +3,6 @@
   "version": "0.1.6",
   "exports": {
     ".": "./deno/index.ts",
-    "./polyfill": "./deno/polyfill.ts",
     "./assert": "./deno/assert.ts",
     "./async_hooks": "./deno/async_hooks.ts",
     "./buffer": "./deno/buffer.ts",
