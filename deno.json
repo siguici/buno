@@ -60,7 +60,7 @@
       "README.md",
       "LICENSE.md"
     ],
-    "exclude": ["!deno/*.ts", "deno/*.js"]
+    "exclude": ["!deno/*.ts", "deno/*.d.ts", "deno/*.js"]
   },
   "compilerOptions": {
     "lib": [
