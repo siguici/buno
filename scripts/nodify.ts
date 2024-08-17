@@ -1,4 +1,5 @@
 import { build, emptyDir } from 'jsr:@deno/dnt';
+import pkg from '../package.json' with { type: 'json' };
 
 const outDir = './tmp';
 const distDir = './deno';
@@ -16,19 +17,7 @@ await build({
   shims: {
     deno: true,
   },
-  package: {
-    name: 'buno.js',
-    version: Deno.args[0],
-    description: 'Your package.',
-    license: 'MIT',
-    repository: {
-      type: 'git',
-      url: 'git+https://github.com/siguici/buno.git',
-    },
-    bugs: {
-      url: 'https://github.com/siguici/buno/issues',
-    },
-  },
+  package: pkg,
   async postBuild() {
     for await (const entryPoint of Deno.readDir(`${outDir}/esm`)) {
       await Deno.rename(
