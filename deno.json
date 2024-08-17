@@ -1,6 +1,6 @@
 {
   "name": "@siguici/buno",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "exports": {
     ".": "./deno/index.ts",
     "./polyfill": "./deno/polyfill.ts",
