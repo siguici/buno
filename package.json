@@ -33,9 +33,9 @@
     "API",
     "compatibility"
   ],
-  "module": "./node/index.js",
-  "main": "./node/index.js",
-  "types": "./node/",
+  "module": "./node/index.mjs",
+  "main": "./node/index.cjs",
+  "types": "./node/index.d.ts",
   "files": ["node/**/*", "deno/**/*"],
   "exports": {
     ".": {
