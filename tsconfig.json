@@ -6,6 +6,7 @@
     "outDir": "node",
     "declaration": true,
     "declarationDir": "node",
+    "emitDeclarationOnly": true,
     "lib": ["ESNext", "DOM", "webworker", "DOM.Iterable"],
     "module": "ESNext",
     "target": "ESNext",

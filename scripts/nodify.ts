@@ -7,11 +7,14 @@ const distDir = './deno';
 await emptyDir(outDir);
 
 await build({
+  packageManager: 'bun',
   importMap: 'deno.json',
   typeCheck: false,
   test: false,
   declaration: true,
-  scriptModule: false,
+  declarationMap: false,
+  sourceMap: false,
+  minify: false,
   entryPoints: ['./deno/mod.ts'],
   outDir,
   shims: {

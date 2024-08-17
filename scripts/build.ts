@@ -63,7 +63,8 @@ function getBuildOptions(
     platform: 'node',
     minify,
     format: format ?? defaultFormat,
-    sourcemap: !minify,
+    sourcemap: false,
+    bundle: true,
     outExtension:
       format === 'cjs'
         ? { '.js': '.cjs' }
