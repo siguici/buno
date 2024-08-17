@@ -36,7 +36,6 @@
   "module": "./node/index.mjs",
   "main": "./node/index.cjs",
   "types": "./node/index.d.ts",
-  "files": ["node/**/*", "deno/**/*"],
   "exports": {
     ".": {
       "bun": "./node/index.ts",
