@@ -1,6 +1,10 @@
 {
   "$schema": "./node_modules/knip/schema.json",
-  "entry": ["src/index.ts", "scripts/build.ts"],
-  "project": ["src/**/*.ts", "scripts/*.ts"],
+  "entry": ["src/index.ts", "scripts/build.ts", "src/fetch.node.cts"],
+  "project": [
+    "src/**/*.ts",
+    "scripts/*.ts",
+    "!src/**/*.{deno.ts,bun.ts,node.cts,node.ts}"
+  ],
   "ignore": ["deno/**/*", "scripts/nodify.ts"]
 }
