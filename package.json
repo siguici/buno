@@ -43,280 +43,244 @@
       "deno": "./deno/index.js",
       "types": "./node/index.d.ts",
       "import": "./node/index.mjs",
-      "require": "./node/index.cjs",
-      "default": "./node/index.js"
+      "require": "./node/index.cjs"
     },
     "./polyfill": {
       "bun": "./node/polyfill.ts",
       "deno": "./deno/polyfill.js",
       "types": "./node/polyfill.d.ts",
       "import": "./node/polyfill.mjs",
-      "require": "./node/polyfill.cjs",
-      "default": "./node/polyfill.js"
+      "require": "./node/polyfill.cjs"
     },
     "./assert": {
       "bun": "./node/assert.ts",
       "deno": "./deno/assert.js",
       "types": "./node/assert.d.ts",
       "import": "./node/assert.mjs",
-      "require": "./node/assert.cjs",
-      "default": "./node/assert.js"
+      "require": "./node/assert.cjs"
     },
     "./async_hooks": {
       "bun": "./node/async_hooks.ts",
       "deno": "./deno/async_hooks.js",
       "types": "./node/async_hooks.d.ts",
-      "import": "./node/async_hooks.mjs",
-      "require": "./node/async_hooks.cjs",
-      "default": "./node/async_hooks.js"
+      "import": "./node/async_hooks.mjs"
     },
     "./buffer": {
       "bun": "./node/buffer.ts",
       "deno": "./deno/buffer.js",
       "types": "./node/buffer.d.ts",
       "import": "./node/buffer.mjs",
-      "require": "./node/buffer.cjs",
-      "default": "./node/buffer.js"
+      "require": "./node/buffer.cjs"
     },
     "./child_process": {
       "bun": "./node/child_process.ts",
       "deno": "./deno/child_process.js",
       "types": "./node/child_process.d.ts",
       "import": "./node/child_process.mjs",
-      "require": "./node/child_process.cjs",
-      "default": "./node/child_process.js"
+      "require": "./node/child_process.cjs"
     },
     "./console": {
       "bun": "./node/console.ts",
       "deno": "./deno/console.js",
       "types": "./node/console.d.ts",
       "import": "./node/console.mjs",
-      "require": "./node/console.cjs",
-      "default": "./node/console.js"
+      "require": "./node/console.cjs"
     },
     "./crypto": {
       "bun": "./node/crypto.ts",
       "deno": "./deno/crypto.js",
       "types": "./node/crypto.d.ts",
       "import": "./node/crypto.mjs",
-      "require": "./node/crypto.cjs",
-      "default": "./node/crypto.js"
+      "require": "./node/crypto.cjs"
     },
     "./dgram": {
       "bun": "./node/dgram.ts",
       "deno": "./deno/dgram.js",
       "types": "./node/dgram.d.ts",
       "import": "./node/dgram.mjs",
-      "require": "./node/dgram.cjs",
-      "default": "./node/dgram.js"
+      "require": "./node/dgram.cjs"
     },
     "./diagnostics_channel": {
       "bun": "./node/diagnostics_channel.ts",
       "deno": "./deno/diagnostics_channel.js",
       "types": "./node/diagnostics_channel.d.ts",
       "import": "./node/diagnostics_channel.mjs",
-      "require": "./node/diagnostics_channel.cjs",
-      "default": "./node/diagnostics_channel.js"
+      "require": "./node/diagnostics_channel.cjs"
     },
     "./dns": {
       "bun": "./node/dns.ts",
       "deno": "./deno/dns.js",
       "types": "./node/dns.d.ts",
       "import": "./node/dns.mjs",
-      "require": "./node/dns.cjs",
-      "default": "./node/dns.js"
+      "require": "./node/dns.cjs"
     },
     "./events": {
       "bun": "./node/events.ts",
       "deno": "./deno/events.js",
       "types": "./node/events.d.ts",
       "import": "./node/events.mjs",
-      "require": "./node/events.cjs",
-      "default": "./node/events.js"
+      "require": "./node/events.cjs"
     },
     "./fs": {
       "bun": "./node/fs.ts",
       "deno": "./deno/fs.js",
       "types": "./node/fs.d.ts",
       "import": "./node/fs.mjs",
-      "require": "./node/fs.cjs",
-      "default": "./node/fs.js"
+      "require": "./node/fs.cjs"
     },
     "./http": {
       "bun": "./node/http.ts",
       "deno": "./deno/http.js",
       "types": "./node/http.d.ts",
       "import": "./node/http.mjs",
-      "require": "./node/http.cjs",
-      "default": "./node/http.js"
+      "require": "./node/http.cjs"
     },
     "./http2": {
       "bun": "./node/http2.ts",
       "deno": "./deno/http2.js",
       "types": "./node/http2.d.ts",
       "import": "./node/http2.mjs",
-      "require": "./node/http2.cjs",
-      "default": "./node/http2.js"
+      "require": "./node/http2.cjs"
     },
     "./https": {
       "bun": "./node/https.ts",
       "deno": "./deno/https.js",
       "types": "./node/https.d.ts",
       "import": "./node/https.mjs",
-      "require": "./node/https.cjs",
-      "default": "./node/https.js"
+      "require": "./node/https.cjs"
     },
     "./module": {
       "bun": "./node/module.ts",
       "deno": "./deno/module.js",
       "types": "./node/module.d.ts",
       "import": "./node/module.mjs",
-      "require": "./node/module.cjs",
-      "default": "./node/module.js"
+      "require": "./node/module.cjs"
     },
     "./net": {
       "bun": "./node/net.ts",
       "deno": "./deno/net.js",
       "types": "./node/net.d.ts",
       "import": "./node/net.mjs",
-      "require": "./node/net.cjs",
-      "default": "./node/net.js"
+      "require": "./node/net.cjs"
     },
     "./os": {
       "bun": "./node/os.ts",
       "deno": "./deno/os.js",
       "types": "./node/os.d.ts",
       "import": "./node/os.mjs",
-      "require": "./node/os.cjs",
-      "default": "./node/os.js"
+      "require": "./node/os.cjs"
     },
     "./path": {
       "bun": "./node/path.ts",
       "deno": "./deno/path.js",
       "types": "./node/path.d.ts",
       "import": "./node/path.mjs",
-      "require": "./node/path.cjs",
-      "default": "./node/path.js"
+      "require": "./node/path.cjs"
     },
     "./perf_hooks": {
       "bun": "./node/perf_hooks.ts",
       "deno": "./deno/perf_hooks.js",
       "types": "./node/perf_hooks.d.ts",
       "import": "./node/perf_hooks.mjs",
-      "require": "./node/perf_hooks.cjs",
-      "default": "./node/perf_hooks.js"
+      "require": "./node/perf_hooks.cjs"
     },
     "./process": {
       "bun": "./node/process.ts",
       "deno": "./deno/process.js",
       "types": "./node/process.d.ts",
       "import": "./node/process.mjs",
-      "require": "./node/process.cjs",
-      "default": "./node/process.js"
+      "require": "./node/process.cjs"
     },
     "./punycode": {
       "bun": "./node/punycode.ts",
       "deno": "./deno/punycode.js",
       "types": "./node/punycode.d.ts",
       "import": "./node/punycode.mjs",
-      "require": "./node/punycode.cjs",
-      "default": "./node/punycode.js"
+      "require": "./node/punycode.cjs"
     },
     "./querystring": {
       "bun": "./node/querystring.ts",
       "deno": "./deno/querystring.js",
       "types": "./node/querystring.d.ts",
       "import": "./node/querystring.mjs",
-      "require": "./node/querystring.cjs",
-      "default": "./node/querystring.js"
+      "require": "./node/querystring.cjs"
     },
     "./readline": {
       "bun": "./node/readline.ts",
       "deno": "./deno/readline.js",
       "types": "./node/readline.d.ts",
       "import": "./node/readline.mjs",
-      "require": "./node/readline.cjs",
-      "default": "./node/readline.js"
+      "require": "./node/readline.cjs"
     },
     "./stream": {
       "bun": "./node/stream.ts",
       "deno": "./deno/stream.js",
       "types": "./node/stream.d.ts",
       "import": "./node/stream.mjs",
-      "require": "./node/stream.cjs",
-      "default": "./node/stream.js"
+      "require": "./node/stream.cjs"
     },
     "./string_decoder": {
       "bun": "./node/string_decoder.ts",
       "deno": "./deno/string_decoder.js",
       "types": "./node/string_decoder.d.ts",
       "import": "./node/string_decoder.mjs",
-      "require": "./node/string_decoder.cjs",
-      "default": "./node/string_decoder.js"
+      "require": "./node/string_decoder.cjs"
     },
     "./timers": {
       "bun": "./node/timers.ts",
       "deno": "./deno/timers.js",
       "types": "./node/timers.d.ts",
       "import": "./node/timers.mjs",
-      "require": "./node/timers.cjs",
-      "default": "./node/timers.js"
+      "require": "./node/timers.cjs"
     },
     "./tls": {
       "bun": "./node/tls.ts",
       "deno": "./deno/tls.js",
       "types": "./node/tls.d.ts",
       "import": "./node/tls.mjs",
-      "require": "./node/tls.cjs",
-      "default": "./node/tls.js"
+      "require": "./node/tls.cjs"
     },
     "./tty": {
       "bun": "./node/tty.ts",
       "deno": "./deno/tty.js",
       "types": "./node/tty.d.ts",
       "import": "./node/tty.mjs",
-      "require": "./node/tty.cjs",
-      "default": "./node/tty.js"
+      "require": "./node/tty.cjs"
     },
     "./url": {
       "bun": "./node/url.ts",
       "deno": "./deno/url.js",
       "types": "./node/url.d.ts",
       "import": "./node/url.mjs",
-      "require": "./node/url.cjs",
-      "default": "./node/url.js"
+      "require": "./node/url.cjs"
     },
     "./util": {
       "bun": "./node/util.ts",
       "deno": "./deno/util.js",
       "types": "./node/util.d.ts",
       "import": "./node/util.mjs",
-      "require": "./node/util.cjs",
-      "default": "./node/util.js"
+      "require": "./node/util.cjs"
     },
     "./vm": {
       "bun": "./node/vm.ts",
       "deno": "./deno/vm.js",
       "types": "./node/vm.d.ts",
       "import": "./node/vm.mjs",
-      "require": "./node/vm.cjs",
-      "default": "./node/vm.js"
+      "require": "./node/vm.cjs"
     },
     "./worker_threads": {
       "bun": "./node/worker_threads.ts",
       "deno": "./deno/worker_threads.js",
       "types": "./node/worker_threads.d.ts",
       "import": "./node/worker_threads.mjs",
-      "require": "./node/worker_threads.cjs",
-      "default": "./node/worker_threads.js"
+      "require": "./node/worker_threads.cjs"
     },
     "./zlib": {
       "bun": "./node/zlib.ts",
       "deno": "./deno/zlib.js",
       "types": "./node/zlib.d.ts",
       "import": "./node/zlib.mjs",
-      "require": "./node/zlib.cjs",
-      "default": "./node/zlib.js"
+      "require": "./node/zlib.cjs"
     },
     "./deno.json": "./deno.json",
     "./package.json": "./package.json",
