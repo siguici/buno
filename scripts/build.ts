@@ -4,9 +4,8 @@ import pkg from '../package.json';
 import { fs, path, zlib } from '../src/';
 import tsconfig from '../tsconfig.json';
 
-export type Target = BuildOptions['target'] | 'default';
-export type Format = BuildOptions['format'];
-export type Platform = BuildOptions['platform'];
+type Target = BuildOptions['target'] | 'default';
+type Format = BuildOptions['format'];
 
 const entryPoints = globbySync(tsconfig.include, {
   gitignore: true,
@@ -17,11 +16,12 @@ const defaultFormat =
   pkg.type && pkg.type.toLowerCase() === 'module' ? 'esm' : 'cjs';
 const outdir = tsconfig.compilerOptions.outDir;
 const target = tsconfig.compilerOptions.target || 'default';
+const minify = !tsconfig.compilerOptions.pretty;
 const watch = process.argv.includes('--watch');
 const dtsdir = tsconfig.compilerOptions.declarationDir || outdir;
 
 bunify(entryPoints, dtsdir);
-build(entryPoints, outdir, target, [undefined, 'cjs', 'esm'], true, watch);
+build(entryPoints, outdir, target, [undefined, 'cjs', 'esm'], minify, watch);
 
 const files = fs.readdirSync(outdir);
 for (const file of files) {
@@ -61,7 +61,6 @@ function getBuildOptions(
   return {
     ...options,
     platform: 'node',
-    bundle: true,
     minify,
     format: format ?? defaultFormat,
     sourcemap: !minify,
