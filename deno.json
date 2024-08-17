@@ -42,6 +42,7 @@
   "exclude": [
     ".*",
     "deno/*.test.ts",
+    "deno/*.d.ts",
     "node/*",
     "src/*",
     "scripts/*",
