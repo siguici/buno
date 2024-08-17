@@ -8,8 +8,15 @@ fs.readdir(directoryPath, (err, files) => {
   }
 
   for (const file of files) {
+    const filePath = path.join(directoryPath, file);
+
+    if (filePath.match(/\.(?:node|bun)\.c?ts$/)) {
+      fs.rmSync(filePath);
+      console.log('\x1b[32m', `🗑️  ${filePath} removed`);
+      continue;
+    }
+
     if (file.endsWith('.ts')) {
-      const filePath = path.join(directoryPath, file);
       fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
           throw err;
