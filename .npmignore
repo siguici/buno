@@ -1,10 +1,14 @@
+!.github/
+Makefile
 src/
 tmp/
 scripts/
 tests/
 biome.json
+knip.json
 deno.lock
+bun.lockb
 tsconfig.json
 *.config.ts
 *.config.?ts
-js/*.tsbuildinfo
+node/tsconfig.tsbuildinfo
