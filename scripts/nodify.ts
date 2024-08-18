@@ -7,7 +7,6 @@ const distDir = './deno';
 await emptyDir(outDir);
 
 await build({
-  packageManager: 'bun',
   importMap: 'deno.json',
   typeCheck: false,
   test: false,
