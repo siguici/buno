@@ -113,7 +113,9 @@ function build(
   formats: Format[] = ['cjs', 'esm'],
   minify = false,
   watch = false,
-): Promise<void | BuildResult> | undefined {
+): Promise<(void | BuildResult<BuildOptions>)[]> {
+  const results: Promise<void | BuildResult>[] = [];
+
   for (const format of formats) {
     const options = getBuildOptions(
       {
@@ -125,10 +127,15 @@ function build(
       },
       watch,
     );
-    return watch
-      ? esbuild.context(options).then((ctx) => ctx.watch())
-      : esbuild.build(options);
+
+    results.push(
+      watch
+        ? esbuild.context(options).then((ctx) => ctx.watch())
+        : esbuild.build(options),
+    );
   }
+
+  return Promise.all(results);
 }
 
 async function outputSize(file: string) {
