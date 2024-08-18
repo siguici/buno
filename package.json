@@ -280,8 +280,8 @@
   },
   "scripts": {
     "build": "bun run build.node && bun run build.deno",
-    "build.node": "rimraf node/*.{js,ts,d.ts} && tsc --build && bun scripts/build.ts",
-    "build.deno": "rimraf deno/*.{js,ts,d.ts,d.ts.map} && denoify --out deno && bun scripts/denoify.ts",
+    "build.node": "rimraf node && tsc --build && bun scripts/build.ts",
+    "build.deno": "rimraf deno/*.{js,ts,d.ts} && denoify --out deno && bun scripts/denoify.ts",
     "check": "biome ci . && knip",
     "check.format": "biome format .",
     "check.lint": "biome check .",
