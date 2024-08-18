@@ -1,6 +1,6 @@
 {
   "name": "@siguici/buno",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "exports": {
     ".": "./deno/index.ts",
     "./assert": "./deno/assert.ts",
