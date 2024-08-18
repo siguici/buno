@@ -1,7 +1,7 @@
-import esbuild, { type BuildOptions } from 'esbuild';
+import esbuild, { type BuildOptions, type BuildResult } from 'esbuild';
 import { globbySync } from 'globby';
 import pkg from '../package.json';
-import { fs, path, zlib } from '../src/';
+import { fs, path, zlib, process } from '../src/';
 import tsconfig from '../tsconfig.json';
 
 type Target = BuildOptions['target'] | 'default';
@@ -21,12 +21,43 @@ const watch = process.argv.includes('--watch');
 const dtsdir = tsconfig.compilerOptions.declarationDir || outdir;
 
 bunify(entryPoints, dtsdir);
-build(entryPoints, outdir, target, [undefined, 'cjs', 'esm'], minify, watch);
+await build(
+  entryPoints,
+  outdir,
+  target,
+  [undefined, 'cjs', 'esm'],
+  minify,
+  watch,
+);
 
 const files = fs.readdirSync(outdir);
 for (const file of files) {
   const filePath = path.join(outdir, file);
   await outputSize(filePath);
+  for (const fileType of ['Node', 'Bun'] as const) {
+    const matches = match(filePath, fileType);
+    if (matches) {
+      const [fileName, ext] = [matches[1], matches[2]];
+      if (ext !== '.ts' || fileType === 'Bun') {
+        const realPath = path.join(fileName + ext);
+        if (fs.existsSync(realPath)) {
+          fs.rmSync(realPath);
+          console.log('\x1b[32m', `🗑️  ${realPath}`);
+        }
+        fs.renameSync(filePath, realPath);
+        console.log('\x1b[32m', `🔁 ${fileType}: ${filePath} -> ${realPath}`);
+      } else {
+        fs.rmSync(filePath);
+        console.log('\x1b[32m', `🗑️  ${filePath}`);
+      }
+    }
+  }
+}
+
+function match(path: string, type: 'Node' | 'Bun'): RegExpMatchArray | null {
+  return path.match(
+    `^(.*)\.${type.toLowerCase()}((?:\.d)?\.[mc]?${type === 'Bun' ? 't' : '[tj]'}s)$`,
+  );
 }
 
 function bunify(
@@ -75,14 +106,14 @@ function getBuildOptions(
   };
 }
 
-async function build(
+function build(
   entryPoints: string[],
   outdir: string,
   target: Target,
   formats: Format[] = ['cjs', 'esm'],
   minify = false,
   watch = false,
-) {
+): Promise<void | BuildResult> | undefined {
   for (const format of formats) {
     const options = getBuildOptions(
       {
@@ -94,9 +125,9 @@ async function build(
       },
       watch,
     );
-    await (watch
+    return watch
       ? esbuild.context(options).then((ctx) => ctx.watch())
-      : esbuild.build(options));
+      : esbuild.build(options);
   }
 }
 

@@ -16,7 +16,8 @@
       },
       "suspicious": {
         "noImplicitAnyLet": "off",
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noConfusingVoidType": "off"
       }
     },
     "ignore": ["node_modules", "jsr", "deno", "node"]
