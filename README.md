@@ -15,11 +15,13 @@ optimizing performance and compatibility for each runtime.
 - **Optimized Performance**: Adapts to each runtime's specific features
   for optimal performance.
 
-## 🛠️ Supported Runtimes
+## 📋 Requirements
 
-- [Node.js 🟢](https://nodejs.org/)
-- [Bun 🟣](https://bun.sh/)
-- [Deno 🔵](https://deno.com/)
+Buno only supports at least one of the following runtimes:
+
+- [Node.js@^20.16.0](https://nodejs.org/)
+- [Bun@^1.1.24](https://bun.sh/)
+- [Deno@^1.45.5](https://deno.com/)
 
 ## 🚀 Installation
 
