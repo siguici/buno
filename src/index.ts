@@ -31,5 +31,4 @@ export * as util from './util';
 export * as vm from './vm';
 export * as worker_threads from './worker_threads';
 export * as zlib from './zlib';
-export * from './fetch';
 export * from './urlpattern';
