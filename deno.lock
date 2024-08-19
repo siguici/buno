@@ -24,9 +24,6 @@
       "npm:@biomejs/biome@^1.8.3": "npm:@biomejs/biome@1.8.3",
       "npm:@types/bun@^1.1.6": "npm:@types/bun@1.1.6",
       "npm:@types/node@^22.3.0": "npm:@types/node@22.3.0",
-      "npm:@types/node@^22.4.0": "npm:@types/node@22.4.0",
-      "npm:cross-fetch@4.0.0": "npm:cross-fetch@4.0.0",
-      "npm:cross-fetch@^4.0.0": "npm:cross-fetch@4.0.0",
       "npm:denoify@^1.6.13": "npm:denoify@1.6.13",
       "npm:esbuild@^0.23.1": "npm:esbuild@0.23.1",
       "npm:globby@^14.0.2": "npm:globby@14.0.2",
@@ -456,12 +453,6 @@
           "undici-types": "undici-types@6.18.2"
         }
       },
-      "@types/node@22.4.0": {
-        "integrity": "sha512-49AbMDwYUz7EXxKU/r7mXOsxwFr4BYbvB7tWYxVuLdb2ibd30ijjXINSMAHiEEZk5PCRBmW1gUeisn2VMKt3cQ==",
-        "dependencies": {
-          "undici-types": "undici-types@6.19.6"
-        }
-      },
       "@types/parse-json@4.0.2": {
         "integrity": "sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==",
         "dependencies": {}
@@ -610,12 +601,6 @@
           "parse-json": "parse-json@5.2.0",
           "path-type": "path-type@4.0.0",
           "yaml": "yaml@1.10.2"
-        }
-      },
-      "cross-fetch@4.0.0": {
-        "integrity": "sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==",
-        "dependencies": {
-          "node-fetch": "node-fetch@2.7.0"
         }
       },
       "cross-spawn@7.0.3": {
@@ -1198,10 +1183,6 @@
         "integrity": "sha512-5ruQbENj95yDYJNS3TvcaxPMshV7aizdv/hWYjGIKoANWKjhWNBsr2YEuYZKodQulB1b8l7ILOuDQep3afowQQ==",
         "dependencies": {}
       },
-      "undici-types@6.19.6": {
-        "integrity": "sha512-e/vggGopEfTKSvj4ihnOLTsqhrKRN3LeO6qSN/GxohhuRv8qH9bNQ4B8W7e/vFL+0XTnmHPB4/kegunZGA4Org==",
-        "dependencies": {}
-      },
       "unicorn-magic@0.1.0": {
         "integrity": "sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==",
         "dependencies": {}
@@ -1283,8 +1264,7 @@
       "dependencies": [
         "npm:@biomejs/biome@^1.8.3",
         "npm:@types/bun@^1.1.6",
-        "npm:@types/node@^22.4.0",
-        "npm:cross-fetch@^4.0.0",
+        "npm:@types/node@^22.4.1",
         "npm:denoify@^1.6.13",
         "npm:esbuild@^0.23.1",
         "npm:globby@^14.0.2",
