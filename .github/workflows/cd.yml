@@ -22,7 +22,7 @@ jobs:
         node: [22.11.0]
         experimental: [false]
 
-    name: 🔖 Release Beno using Bun-${{ matrix.bun }} & Node-{{ matrix.node }} under ${{ matrix.os }}
+    name: 🔖 Release Beno using Bun@${{ matrix.bun }} & Node@{{ matrix.node }} under ${{ matrix.os }}
 
     steps:
       - name: 🚚 Checkout code
@@ -31,12 +31,12 @@ jobs:
       - name: 🐳 Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ node.version }}
+          node-version: ${{ matrix.node }}
 
       - name: 🦄 Set up Bun.sh
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: ${{ bun.version }}
+          bun-version: ${{ matrix.bun }}
 
       - name: 🔖 Create Release Pull Request or Publish to NPM 🚀
         id: changesets
@@ -61,10 +61,10 @@ jobs:
 
     strategy:
       matrix:
-        operating-system: [ubuntu-latest]
-        deno-version: [1.45.5]
+        os: [ubuntu-latest]
+        deno: [1.45.5]
 
-    name: 🚀 Deploy Beno to JSR using Deno ${{ matrix.deno-version }}
+    name: 🚀 Deploy Beno to JSR using Deno@${{ matrix.deno }} under ${{ matrix.os }}
 
     steps:
       - name: 🚚 Get latest code
@@ -73,7 +73,7 @@ jobs:
       - name: 🦕 Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: ${{ matrix.deno-version }}
+          deno-version: ${{ matrix.deno }}
 
       - name: 📂 Download Deno distribution files
         uses: actions/download-artifact@v4

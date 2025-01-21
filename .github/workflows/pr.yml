@@ -21,11 +21,11 @@ jobs:
       - name: 🐳 Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ node.version }}
+          node-version: ${{ matrix.node }}
 
       - name: 🦄 Set up Bun.sh
         uses: oven-sh/setup-bun@v1
         with:
-          bun-version: ${{ bun.version }}
+          bun-version: ${{ matrix.bun }}
 
       - run: make publish
