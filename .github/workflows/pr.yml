@@ -12,6 +12,7 @@ jobs:
         os: [ubuntu-latest]
         bun: [1.1.24]
         node: [22.11.0]
+        deno: [1.45.5]
         experimental: [false]
 
     steps:
@@ -27,5 +28,10 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: ${{ matrix.bun }}
+
+      - name: 🦕 Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{ matrix.deno }}
 
       - run: make publish
