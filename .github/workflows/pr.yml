@@ -5,22 +5,27 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental }}
+    name: 🔖 PR Release Beno using Bun-${{ matrix.bun }} & Node-{{ matrix.node }} under ${{ matrix.os }}
     strategy:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
         bun: [1.1.24]
+        node: [22.11.0]
         experimental: [false]
 
     steps:
       - name: 🚚 Checkout code
         uses: actions/checkout@v4
 
-      - name: 🦄 Setup Bun & NPM
-        uses: siguici/setup-js@v1
+      - name: 🐳 Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          runtime: bun
-          version: ${{ matrix.bun }}
-          pm: npm
+          node-version: ${{ node.version }}
+
+      - name: 🦄 Set up Bun.sh
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: ${{ bun.version }}
 
       - run: make publish
