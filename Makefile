@@ -1,4 +1,4 @@
-.PHONY: install check fix build dist publish deno
+.PHONY: install check fix build
 
 install: node_modules bun.lockb
 
@@ -16,6 +16,8 @@ fix: install
 
 build: check
 	bun run build
+
+.PHONY: jsr npm dist publish pr-release release
 
 jsr: build
 
