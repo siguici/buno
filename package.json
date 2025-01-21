@@ -1,6 +1,6 @@
 {
   "name": "beno",
-  "version": "0.1.11",
+  "version": "0.0.0",
   "private": false,
   "sideEffects": true,
   "type": "module",
