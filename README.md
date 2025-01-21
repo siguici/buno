@@ -1,6 +1,6 @@
-# Buno ⚙️
+# Beno ⚙️
 
-**Buno.js** is a cross-platform runtime adapter for JavaScript and TypeScript,
+**Beno** is a cross-platform runtime adapter for JavaScript and TypeScript,
 designed to unify API access across Node.js, Bun, and Deno environments.
 It allows developers to write portable code with consistent APIs,
 optimizing performance and compatibility for each runtime.
@@ -17,7 +17,7 @@ optimizing performance and compatibility for each runtime.
 
 ## 📋 Requirements
 
-Buno only supports at least one of the following runtimes:
+Beno only supports at least one of the following runtimes:
 
 - [Node.js@^20.16.0](https://nodejs.org/)
 - [Bun@^1.1.24](https://bun.sh/)
@@ -25,83 +25,83 @@ Buno only supports at least one of the following runtimes:
 
 ## 🚀 Installation
 
-You can install [`Buno`](https://github.com/siguici/buno)
-from [`NPM`](https://npmjs.com/package/buno.js) or [`JSR`](https://jsr.io/@siguici/buno):
+You can install [`Beno`](https://github.com/siguici/beno)
+from [`NPM`](https://npmjs.com/package/beno) or [`JSR`](https://jsr.io/@siguici/beno):
 
 - Using `npm`:
 
-  From [`NPM`](https://npmjs.com/package/buno.js):
+  From [`NPM`](https://npmjs.com/package/beno):
 
   ```bash
-  npm install buno.js
+  npm install beno
   ```
 
-  From [`JSR`](https://jsr.io/@siguici/buno):
+  From [`JSR`](https://jsr.io/@siguici/beno):
 
   ```bash
-  npx jsr add @siguici/buno
+  npx jsr add @siguici/beno
   ```
 
 - Using `Yarn`:
 
-  From [`NPM`](https://npmjs.com/package/buno.js):
+  From [`NPM`](https://npmjs.com/package/beno):
 
   ```bash
-  yarn add buno.js
+  yarn add beno
   ```
 
-  From [`JSR`](https://jsr.io/@siguici/buno):
+  From [`JSR`](https://jsr.io/@siguici/beno):
 
   ```bash
-  yarn dlx jsr add @siguici/buno
+  yarn dlx jsr add @siguici/beno
   ```
 
 - Using `PNPM`:
 
-  From [`NPM`](https://npmjs.com/package/buno.js):
+  From [`NPM`](https://npmjs.com/package/beno):
 
   ```bash
-  pnpm add buno.js
+  pnpm add beno
   ```
 
-  From [`JSR`](https://jsr.io/@siguici/buno):
+  From [`JSR`](https://jsr.io/@siguici/beno):
 
   ```bash
-  pnpm dlx jsr add @siguici/buno
+  pnpm dlx jsr add @siguici/beno
   ```
 
 - Using `Bun`:
 
-  From [`NPM`](https://npmjs.com/package/buno.js):
+  From [`NPM`](https://npmjs.com/package/beno):
 
   ```bash
-  bun install buno.js
+  bun install beno
   ```
 
-  From [`JSR`](https://jsr.io/@siguici/buno):
+  From [`JSR`](https://jsr.io/@siguici/beno):
 
   ```bash
-  bunx jsr add @siguici/buno
+  bunx jsr add @siguici/beno
   ```
 
 - Using `Deno`:
 
-  From [`NPM`](https://npmjs.com/package/buno.js):
+  From [`NPM`](https://npmjs.com/package/beno):
 
   ```bash
-  deno install npm:buno.js
+  deno install npm:beno
   ```
 
-  From [`JSR`](https://jsr.io/@siguici/buno):
+  From [`JSR`](https://jsr.io/@siguici/beno):
 
   ```bash
-  deno add @siguici/buno
+  deno add @siguici/beno
   ```
 
   Without install:
 
   ```typescript
-  import buno.js from 'jsr:@siguici/buno';
+  import beno from 'jsr:@siguici/beno';
   ```
 
 ## 💡 Usage
@@ -109,22 +109,22 @@ from [`NPM`](https://npmjs.com/package/buno.js) or [`JSR`](https://jsr.io/@sigui
 - Import from `NPM`:
 
   ```javascript
-  import { fs, path } from 'buno.js';
+  import { fs, path } from 'beno';
   ```
 
 - Import from `JSR`:
 
   ```javascript
-  import { fs, path } from '@siguici/buno';
+  import { fs, path } from '@siguici/beno';
   ```
 
 - Import without install (using `Deno`):
 
   ```javascript
-  import { fs, path } from 'jsr:@siguici/buno';
+  import { fs, path } from 'jsr:@siguici/beno';
   ```
 
-- Use modules imported from `Buno`:
+- Use modules imported from `Beno`:
 
   ```typescript
   // Example usage of fs
@@ -140,20 +140,20 @@ from [`NPM`](https://npmjs.com/package/buno.js) or [`JSR`](https://jsr.io/@sigui
 
 ## ⚙️ Node.js API Compatibility
 
-Buno aims to unify and simplify cross-runtime development
+Beno aims to unify and simplify cross-runtime development
 by providing a consistent interface for [Node.js APIs](https://nodejs.org/api/)
 across [Deno](https://deno.com/) and [Bun](https://bun.sh/).
-While Buno strives for complete Node.js API compatibility,
+While Beno strives for complete Node.js API compatibility,
 some modules may have partial or no implementation in specific runtimes.
 Most [npm packages](https://www.npmjs.com/) intended for `Node.js` environments
-will work seamlessly with Buno, but the best way to ensure compatibility is
+will work seamlessly with Beno, but the best way to ensure compatibility is
 to test them directly.
 
 This document is regularly updated to reflect the compatibility status
 of the latest versions of `Deno` and `Bun`.
-The information below reflects Buno's compatibility with _Node.js v20 APIs_
+The information below reflects Beno's compatibility with _Node.js v20 APIs_
 as implemented in both `Deno` and `Bun`. If you encounter any compatibility issues,
-please [open an issue on GitHub](https://github.com/siguici/buno/issues/new/choose).
+please [open an issue on GitHub](https://github.com/siguici/beno/issues/new/choose).
 Reporting such issues helps us prioritize and address gaps in compatibility.
 
 - ✅ = Implemented in both
@@ -507,5 +507,5 @@ For questions or feedback, you can reach out to [siguici@proton.me](mailto:sigui
 
 ---
 
-**Buno** aims to make cross-runtime development easier and more efficient.
+**Beno** aims to make cross-runtime development easier and more efficient.
 We hope you find it useful! 🎉

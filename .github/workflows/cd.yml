@@ -28,7 +28,7 @@ jobs:
         operating-system: [ubuntu-latest]
         deno-version: [1.45.5]
 
-    name: 🚀 Deploy Buno to JSR using Deno ${{ matrix.deno-version }}
+    name: 🚀 Deploy Beno to JSR using Deno ${{ matrix.deno-version }}
 
     steps:
       - name: 🚚 Get latest code

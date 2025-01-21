@@ -1,5 +1,5 @@
 {
-  "name": "buno.js",
+  "name": "beno",
   "version": "0.1.11",
   "private": false,
   "sideEffects": true,
@@ -12,9 +12,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/siguici/buno#readme",
-  "repository": "https://github.com/siguici/buno",
-  "bugs": "https://github.com/siguici/buno/issues",
+  "homepage": "https://github.com/siguici/beno#readme",
+  "repository": "https://github.com/siguici/beno",
+  "bugs": "https://github.com/siguici/beno/issues",
   "author": {
     "name": "Sigui Kessé Emmanuel",
     "email": "siguici@proton.me",
