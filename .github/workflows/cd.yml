@@ -11,11 +11,41 @@ on:
     branches: [trunk]
 
 jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest]
+        bun: [1.1.24]
+        experimental: [false]
+
+    name: 🔖 Release Beno using Bun-${{ matrix.bun }} under ${{ matrix.os }}
+
+    steps:
+      - name: 🚚 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🦄 Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: ${{ matrix.bun }}
+
+      - name: 🔖 Create Release Pull Request or Publish to NPM 🚀
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: make release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
   deploy:
     runs-on: ${{ matrix.operating-system }}
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
-    environment: 
+    environment:
       name: production
       url: https://jsr.io/@siguici/buno
 
@@ -34,7 +64,7 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: 🔨 Configure Deno
+      - name: 🦕 Setup Deno
         uses: denoland/setup-deno@v1
         with:
           deno-version: ${{ matrix.deno-version }}

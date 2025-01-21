@@ -6,5 +6,6 @@
     "scripts/*.ts",
     "!src/**/*.{deno.ts,bun.ts,node.cts,node.ts}"
   ],
-  "ignore": ["deno/**/*", "scripts/nodify.ts"]
+  "ignore": ["deno/**/*", "scripts/nodify.ts"],
+  "ignoreDependencies": ["pkg-pr-new"]
 }

@@ -29,3 +29,9 @@ dist: jsr npm
 publish: dist
 	npm publish
 	git push && git push --tags
+	
+pr-release: dist
+	bunx pkg-pr-new publish
+
+release: dist
+	bun release
