@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental }}
-    name: 🔖 PR Release Beno using Bun-${{ matrix.bun }} & Node-{{ matrix.node }} under ${{ matrix.os }}
+    name: 🔖 PR Release Beno using Node@${{ matrix.node }}, Bun@${{ matrix.bun }} & Deno@${{ matrix.deno }} under ${{ matrix.os }}
     strategy:
       fail-fast: true
       matrix:

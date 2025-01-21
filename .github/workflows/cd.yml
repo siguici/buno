@@ -23,7 +23,7 @@ jobs:
         deno: [1.45.5]
         experimental: [false]
 
-    name: 🔖 Release Beno using Bun@${{ matrix.bun }} & Node@{{ matrix.node }} under ${{ matrix.os }}
+    name: 🔖 Release Beno using Node@${{ matrix.node }}, Bun@${{ matrix.bun }} & Deno@${{ matrix.deno }} under ${{ matrix.os }}
 
     steps:
       - name: 🚚 Checkout code
