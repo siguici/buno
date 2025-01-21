@@ -18,9 +18,9 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        bun: [1.1.24]
-        node: [22.11.0]
-        deno: [1.45.5]
+        bun: [1.1.45]
+        node: [22.13.1]
+        deno: [2.1.6]
         experimental: [false]
 
     name: 🔖 Release Beno using Node@${{ matrix.node }}, Bun@${{ matrix.bun }} & Deno@${{ matrix.deno }} under ${{ matrix.os }}
@@ -68,7 +68,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        deno: [1.45.5]
+        deno: [2.1.6]
 
     name: 🚀 Deploy Beno to JSR using Deno@${{ matrix.deno }} under ${{ matrix.os }}
 
