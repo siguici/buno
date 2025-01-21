@@ -17,7 +17,7 @@ fix: install
 build: check
 	bun run build
 
-.PHONY: jsr npm dist publish pr-release release
+.PHONY: jsr npm dist publish release
 
 jsr: build
 
@@ -29,10 +29,6 @@ dist: jsr npm
 	deno task check
 
 publish: dist
-	npm publish
-	git push && git push --tags
-	
-pr-release: dist
 	bunx pkg-pr-new publish
 
 release: dist

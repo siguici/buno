@@ -21,4 +21,4 @@ jobs:
         with:
           bun-version: ${{ matrix.bun }}
 
-      - run: make pr-release
+      - run: make publish
