@@ -16,9 +16,11 @@ jobs:
       - name: 🚚 Checkout code
         uses: actions/checkout@v4
 
-      - name: 🦄 Setup Bun
-        uses: oven-sh/setup-bun@v1
+      - name: 🦄 Setup Bun & NPM
+        uses: siguici/setup-js@v1
         with:
-          bun-version: ${{ matrix.bun }}
+          runtime: bun
+          version: ${{ matrix.bun }}
+          pm: npm
 
       - run: make publish
