@@ -80,6 +80,13 @@
     "singleQuote": true,
     "proseWrap": "preserve"
   },
+  "lint": {
+    "include": ["deno/"],
+    "exclude": ["!deno/*.ts", "deno/*.d.ts", "deno/*.js"],
+    "rules": {
+      "tags": ["recommended"]
+    }
+  },
   "tasks": {
     "build": "deno run -A scripts/nodify.ts",
     "check": "deno task check:fmt && deno task check:lint && deno task check:types",
