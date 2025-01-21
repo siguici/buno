@@ -293,7 +293,7 @@
     "format": "biome format --write .",
     "knip": "knip",
     "lint": "biome check --write .",
-    "release": "pnpm build && changeset publish",
+    "release": "changeset publish",
     "prepare": "husky && gitmoji -i",
     "unsed": "knip --fix"
   },
