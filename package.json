@@ -204,6 +204,13 @@
       "import": "./node/readline.mjs",
       "require": "./node/readline.cjs"
     },
+    "./spawn": {
+      "bun": "./node/spawn.ts",
+      "deno": "./deno/spawn.js",
+      "types": "./node/spawn.d.ts",
+      "import": "./node/spawn.mjs",
+      "require": "./node/spawn.cjs"
+    },
     "./stream": {
       "bun": "./node/stream.ts",
       "deno": "./deno/stream.js",
@@ -260,6 +267,13 @@
       "import": "./node/vm.mjs",
       "require": "./node/vm.cjs"
     },
+    "./which": {
+      "bun": "./node/which.ts",
+      "deno": "./deno/which.js",
+      "types": "./node/which.d.ts",
+      "import": "./node/which.mjs",
+      "require": "./node/which.cjs"
+    },
     "./worker_threads": {
       "bun": "./node/worker_threads.ts",
       "deno": "./deno/worker_threads.js",
@@ -299,21 +313,25 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@changesets/cli": "^2.27.11",
-    "@types/bun": "^1.1.18",
-    "@types/node": "^22.10.7",
+    "@changesets/cli": "^2.27.12",
+    "@types/bun": "^1.2.0",
+    "@types/cross-spawn": "^6.0.6",
+    "@types/node": "^22.10.10",
+    "@types/which": "^3.0.4",
     "denoify": "^1.6.16",
     "esbuild": "^0.24.2",
     "gitmoji-cli": "^9.5.0",
     "globby": "^14.0.2",
     "husky": "^9.1.7",
-    "knip": "^5.42.3",
+    "knip": "^5.43.3",
     "pkg-pr-new": "^0.0.39",
     "rimraf": "^6.0.1",
     "tslib": "^2.8.1",
     "typescript": "^5.7.3"
   },
   "dependencies": {
-    "urlpattern-polyfill": "^10.0.0"
+    "cross-spawn": "^7.0.6",
+    "urlpattern-polyfill": "^10.0.0",
+    "which": "^5.0.0"
   }
 }

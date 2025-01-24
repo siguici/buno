@@ -26,6 +26,7 @@
     "./punycode": "./deno/punycode.ts",
     "./querystring": "./deno/querystring.ts",
     "./readline": "./deno/readline.ts",
+    "./spawn": "./deno/spawn.ts",
     "./stream": "./deno/stream.ts",
     "./string_decoder": "./deno/string_decoder.ts",
     "./timers": "./deno/timers.ts",
@@ -34,6 +35,7 @@
     "./url": "./deno/url.ts",
     "./util": "./deno/util.ts",
     "./vm": "./deno/vm.ts",
+    "./which": "./deno/which.ts",
     "./worker_threads": "./deno/worker_threads.ts",
     "./zlib": "./deno/zlib.ts"
   },
