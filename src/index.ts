@@ -1,3 +1,5 @@
+import { name, version } from '../package.json';
+
 export { default as assert } from './assert';
 export * as async_hooks from './async_hooks';
 export * as buffer from './buffer';
@@ -34,4 +36,4 @@ export * as which from './which';
 export * as worker_threads from './worker_threads';
 export * as zlib from './zlib';
 export * from './urlpattern';
-export * from './types';
+export type * from './types';
