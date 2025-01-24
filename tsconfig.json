@@ -1,6 +1,6 @@
 {
   "include": ["src"],
-  "exclude": ["node_modules", "deno/**/*", "node/**/*", "src/**/*.deno.ts"],
+  "exclude": ["node_modules", "deno/**/*", "node/**/*"],
   "compilerOptions": {
     "strict": true,
     "outDir": "node",
@@ -35,6 +35,6 @@
     "inlineSources": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "types": ["bun", "node"]
+    "types": ["node", "deno", "bun"]
   }
 }

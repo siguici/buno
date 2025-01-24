@@ -7,5 +7,5 @@
     "!src/**/*.{deno.ts,bun.ts,node.cts,node.ts}"
   ],
   "ignore": ["deno/**/*", "scripts/nodify.ts"],
-  "ignoreDependencies": ["pkg-pr-new"]
+  "ignoreDependencies": ["pkg-pr-new", "@types/deno"]
 }
