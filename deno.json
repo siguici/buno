@@ -32,6 +32,7 @@
     "./timers": "./deno/timers.ts",
     "./tls": "./deno/tls.ts",
     "./tty": "./deno/tty.ts",
+    "./types": "./deno/types.ts",
     "./url": "./deno/url.ts",
     "./util": "./deno/util.ts",
     "./vm": "./deno/vm.ts",

@@ -34,3 +34,4 @@ export * as which from './which';
 export * as worker_threads from './worker_threads';
 export * as zlib from './zlib';
 export * from './urlpattern';
+export * from './types';

@@ -246,6 +246,13 @@
       "import": "./node/tty.mjs",
       "require": "./node/tty.cjs"
     },
+    "./types": {
+      "bun": "./node/types.ts",
+      "deno": "./deno/types.js",
+      "types": "./node/types.d.ts",
+      "import": "./node/types.mjs",
+      "require": "./node/types.cjs"
+    },
     "./url": {
       "bun": "./node/url.ts",
       "deno": "./deno/url.js",

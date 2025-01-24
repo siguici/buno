@@ -1,4 +1,5 @@
 import _which from 'which';
+import type { WhichOptions, WhichResult } from './types';
 
 const _whichSync = _which.sync;
 
@@ -15,11 +16,11 @@ function chdir(directory?: string): () => void {
 
 const which = async (
   command: string,
-  options: { PATH?: string; cwd?: string },
-): Promise<string | null> => {
-  const opts = { nothrow: true, path: options.PATH };
+  options: WhichOptions,
+): Promise<WhichResult> => {
+  const opts = { nothrow: true, path: options.path };
   const ch = chdir(options.cwd);
-  let result: string | null;
+  let result: WhichResult;
 
   if (options.cwd) {
     result = await _which(command, opts);
@@ -30,13 +31,10 @@ const which = async (
   return result;
 };
 
-const whichSync = (
-  command: string,
-  options: { PATH?: string; cwd?: string },
-): string | null => {
-  const opts = { nothrow: true, path: options.PATH };
+const whichSync = (command: string, options: WhichOptions): WhichResult => {
+  const opts = { nothrow: true, path: options.path };
   const ch = chdir(options.cwd);
-  let result: string | null;
+  let result: WhichResult;
 
   if (options.cwd) {
     result = _whichSync(command, opts);
