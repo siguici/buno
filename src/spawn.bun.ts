@@ -3,6 +3,7 @@ import type {
   ExecOptions as BenoExecOptions,
   ExecCallback,
   ExecResult,
+  ExecSyncResult,
 } from './types';
 
 export type ExecOptions = BenoExecOptions & SpawnOptions.OptionsObject;
@@ -78,4 +79,32 @@ export function exec<T = void>(
       failed: code !== 0,
     });
   });
+}
+
+export function execSync(command: string | string[]): ExecSyncResult;
+export function execSync(
+  command: string | string[],
+  options: ExecOptions,
+): ExecSyncResult;
+export function execSync(
+  command: string | string[],
+  options?: ExecOptions,
+): ExecSyncResult {
+  if (options !== undefined) {
+    options.stdio = ['ignore', 'pipe', 'pipe'];
+  }
+  const child = Bun.spawn(
+    Array.isArray(command) ? command : command.split(/\s+/),
+    options,
+  );
+
+  const code = (child.exitCode ?? child.stderr) ? 1 : 0;
+
+  return {
+    code,
+    stdout: child.stdout.toString(),
+    stderr: child.stderr,
+    success: code === 0,
+    failed: code !== 0,
+  };
 }
