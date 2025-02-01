@@ -11,6 +11,7 @@ export type ExecOptions = Partial<{
   env: Record<string, string>;
 }>;
 export type ExecResult = Promise<Output>;
+export type ExecSyncResult = Output;
 export type ExecCallback<T = void> = (output: Output) => T;
 
 export type ChildProcess = {

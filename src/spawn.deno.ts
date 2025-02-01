@@ -3,6 +3,7 @@ import type {
   ExecOptions as BenoExecOptions,
   ExecCallback,
   ExecResult,
+  ExecSyncResult,
 } from './types';
 
 export type ExecOptions = BenoExecOptions & Deno.CommandOptions;
@@ -51,4 +52,34 @@ export async function exec<T = void>(
     success: output.success,
     failed: !output.success,
   }));
+}
+
+export function execSync(command: string | string[]): ExecSyncResult;
+export function execSync(
+  command: string | string[],
+  options: ExecOptions,
+): ExecSyncResult;
+export function execSync(
+  command: string | string[],
+  options?: ExecOptions,
+): ExecSyncResult {
+  let args = Array.isArray(command) ? command : command.split(/\s+/);
+  command = args[0];
+  args = args.slice(1);
+
+  const proc = new Deno.Command(command, {
+    args,
+    ...options,
+  });
+
+  const output = proc.outputSync();
+  const result = {
+    code: output.code,
+    success: output.success,
+    failed: !output.success,
+    stderr: output.stderr.toString(),
+    stdout: output.stdout.toString(),
+  };
+
+  return result;
 }
