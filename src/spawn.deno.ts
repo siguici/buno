@@ -57,10 +57,6 @@ export async function exec<T = void>(
 export function execSync(command: string | string[]): ExecSyncResult;
 export function execSync(
   command: string | string[],
-  options: ExecOptions,
-): ExecSyncResult;
-export function execSync(
-  command: string | string[],
   options?: ExecOptions,
 ): ExecSyncResult {
   let args = Array.isArray(command) ? command : command.split(/\s+/);
