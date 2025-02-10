@@ -6,6 +6,7 @@ import {
   execSync as nodeExecSync,
 } from 'node:child_process';
 import { spawn as nodeSpawn, sync as nodeSpawnSync } from 'cross-spawn';
+import { isArgs, isSpawnOptions } from './helpers';
 import type {
   ExecOptions as BenoExecOptions,
   SpawnOptions as BenoSpawnOptions,
@@ -130,6 +131,11 @@ export async function spawn(
     if (argsOrOpts === undefined) {
       return nodeSpawn(command);
     }
+
+    if (!(isArgs(argsOrOpts) || isSpawnOptions(argsOrOpts))) {
+      throw new TypeError('The second argument must be an array or an object');
+    }
+
     return nodeSpawn(
       command,
       argsOrOpts as typeof argsOrOpts extends string[]
@@ -137,6 +143,11 @@ export async function spawn(
         : SpawnOptions,
     );
   }
+
+  if (!isArgs(argsOrOpts)) {
+    throw new TypeError('The second argument must be an array');
+  }
+
   return nodeSpawn(command, argsOrOpts as string[], options);
 }
 
@@ -160,6 +171,11 @@ export function spawnSync(
     if (argsOrOpts === undefined) {
       return nodeSpawnSync(command);
     }
+
+    if (!(isArgs(argsOrOpts) || isSpawnOptions(argsOrOpts))) {
+      throw new TypeError('The second argument must be an array or an object');
+    }
+
     return nodeSpawnSync(
       command,
       argsOrOpts as typeof argsOrOpts extends string[]
@@ -167,5 +183,10 @@ export function spawnSync(
         : SpawnOptions,
     );
   }
+
+  if (!isArgs(argsOrOpts)) {
+    throw new TypeError('The second argument must be an array');
+  }
+
   return nodeSpawnSync(command, argsOrOpts as string[], options);
 }
