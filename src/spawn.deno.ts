@@ -1,4 +1,3 @@
-import { stderr } from 'node:process';
 import type {
   ExecOptions as BenoExecOptions,
   ExecCallback,

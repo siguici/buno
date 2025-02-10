@@ -1,5 +1,3 @@
-import { name, version } from '../package.json';
-
 export { default as assert } from './assert';
 export * as async_hooks from './async_hooks';
 export * as buffer from './buffer';
