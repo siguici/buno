@@ -6,6 +6,7 @@ import type {
 } from './types';
 
 export type ExecOptions = BenoExecOptions & Deno.CommandOptions;
+export type { ExecCallback, ExecResult, ExecSyncResult };
 
 export async function exec(command: string | string[]): ExecResult;
 export async function exec(

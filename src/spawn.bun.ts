@@ -7,6 +7,7 @@ import type {
 } from './types';
 
 export type ExecOptions = BenoExecOptions & SpawnOptions.OptionsObject;
+export type { ExecCallback, ExecResult, ExecSyncResult };
 
 export function exec(command: string | string[]): ExecResult;
 export function exec(

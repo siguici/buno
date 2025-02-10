@@ -13,6 +13,7 @@ import type {
 } from './types';
 
 export type ExecOptions = NodeExecOptions & BenoExecOptions;
+export type { ExecCallback, ExecResult, ExecSyncResult };
 
 export function exec(command: string | string[]): ExecResult;
 export function exec(

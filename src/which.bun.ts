@@ -12,4 +12,6 @@ const which = (command: string, options: WhichOptions): Promise<WhichResult> =>
     }
   });
 
+export type { WhichOptions, WhichResult };
+
 export { which, whichSync };
