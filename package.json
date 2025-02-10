@@ -204,13 +204,6 @@
       "import": "./node/readline.mjs",
       "require": "./node/readline.cjs"
     },
-    "./spawn": {
-      "bun": "./node/spawn.ts",
-      "deno": "./deno/spawn.js",
-      "types": "./node/spawn.d.ts",
-      "import": "./node/spawn.mjs",
-      "require": "./node/spawn.cjs"
-    },
     "./stream": {
       "bun": "./node/stream.ts",
       "deno": "./deno/stream.js",
@@ -224,6 +217,13 @@
       "types": "./node/string_decoder.d.ts",
       "import": "./node/string_decoder.mjs",
       "require": "./node/string_decoder.cjs"
+    },
+    "./subprocess": {
+      "bun": "./node/subprocess.ts",
+      "deno": "./deno/subprocess.js",
+      "types": "./node/subprocess.d.ts",
+      "import": "./node/subprocess.mjs",
+      "require": "./node/subprocess.cjs"
     },
     "./timers": {
       "bun": "./node/timers.ts",
