@@ -6,9 +6,9 @@
   "type": "module",
   "license": "MIT",
   "engines": {
-    "bun": ">=1.1"
+    "bun": ">=1.2"
   },
-  "packageManager": "bun@1.1.45",
+  "packageManager": "bun@1.2.2",
   "publishConfig": {
     "access": "public"
   },

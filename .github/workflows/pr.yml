@@ -10,9 +10,9 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        bun: [1.1.45]
+        bun: [1.2.2]
         node: [22.13.1]
-        deno: [2.1.6]
+        deno: [2.1.9]
         experimental: [false]
 
     steps:
