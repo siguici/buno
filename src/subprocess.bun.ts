@@ -1,6 +1,7 @@
 import type {
   SpawnOptions as BunSpawnOptions,
   Subprocess as BunSubprocess,
+  SyncSubprocess as BunSyncSubprocess,
 } from 'bun';
 import { isArgs, isSpawnOptions } from './helpers';
 import type {
@@ -16,10 +17,14 @@ import type {
 export type ExecOptions = BenoExecOptions & BunSpawnOptions.OptionsObject;
 export type SpawnOptions = BenoSpawnOptions & BunSpawnOptions.OptionsObject;
 export type SpawnResult<T extends Stdio | undefined = undefined> = Promise<
-  BunSubprocess<Stdin<T>, Stdout<T>, Stderr<T>>
+  T extends undefined
+    ? BunSubprocess<'ignore', 'pipe', 'inherit'>
+    : BunSubprocess<Stdin<T>, Stdout<T>, Stderr<T>>
 >;
 export type SpawnSyncResult<T extends Stdio | undefined = undefined> =
-  BunSubprocess<Stdin<T>, Stdout<T>, Stderr<T>>;
+  T extends undefined
+    ? BunSyncSubprocess<'pipe', 'pipe'>
+    : BunSyncSubprocess<Stdout<T>, Stderr<T>>;
 export type { ExecCallback, ExecResult, ProcessResult };
 
 type Stdin<T extends Stdio | undefined> = T extends IO
