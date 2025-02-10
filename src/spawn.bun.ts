@@ -1,13 +1,42 @@
-import type { SpawnOptions, Subprocess } from 'bun';
+import type {
+  SpawnOptions as BunSpawnOptions,
+  Subprocess as BunSubprocess,
+} from 'bun';
+import { isArgs, isSpawnOptions } from './helpers';
 import type {
   ExecOptions as BenoExecOptions,
+  SpawnOptions as BenoSpawnOptions,
   ExecCallback,
   ExecResult,
-  ExecSyncResult,
+  IO,
+  ProcessResult,
+  Stdio,
 } from './types';
 
-export type ExecOptions = BenoExecOptions & SpawnOptions.OptionsObject;
-export type { ExecCallback, ExecResult, ExecSyncResult };
+export type ExecOptions = BenoExecOptions & BunSpawnOptions.OptionsObject;
+export type SpawnOptions = BenoSpawnOptions & BunSpawnOptions.OptionsObject;
+export type SpawnResult<T extends Stdio | undefined = undefined> = Promise<
+  BunSubprocess<Stdin<T>, Stdout<T>, Stderr<T>>
+>;
+export type SpawnSyncResult<T extends Stdio | undefined = undefined> =
+  BunSubprocess<Stdin<T>, Stdout<T>, Stderr<T>>;
+export type { ExecCallback, ExecResult, ProcessResult };
+
+type Stdin<T extends Stdio | undefined> = T extends IO
+  ? T
+  : T extends { stdin: IO }
+    ? T['stdin']
+    : undefined;
+type Stdout<T extends Stdio | undefined> = T extends IO
+  ? T
+  : T extends { stdout: IO }
+    ? T['stdout']
+    : undefined;
+type Stderr<T extends Stdio | undefined> = T extends IO
+  ? T
+  : T extends { stderr: IO }
+    ? T['stderr']
+    : undefined;
 
 export function exec(command: string | string[]): ExecResult;
 export function exec(
@@ -32,7 +61,7 @@ export function exec<T = void>(
       options = {};
     }
     options.onExit = (
-      proc: Subprocess<'ignore', 'pipe', 'pipe'>,
+      proc: BunSubprocess<'ignore', 'pipe', 'pipe'>,
       exitCode: number,
       signalCode: number | null,
       error: Error | undefined,
@@ -82,15 +111,15 @@ export function exec<T = void>(
   });
 }
 
-export function execSync(command: string | string[]): ExecSyncResult;
+export function execSync(command: string | string[]): ProcessResult;
 export function execSync(
   command: string | string[],
   options: ExecOptions,
-): ExecSyncResult;
+): ProcessResult;
 export function execSync(
   command: string | string[],
   options?: ExecOptions,
-): ExecSyncResult {
+): ProcessResult {
   if (options !== undefined) {
     options.stdio = ['ignore', 'pipe', 'pipe'];
   }
@@ -108,4 +137,71 @@ export function execSync(
     success: code === 0,
     failed: code !== 0,
   };
+}
+
+export async function spawn(command: string): SpawnResult;
+export async function spawn(command: string, args: string[]): SpawnResult;
+export async function spawn(
+  command: string,
+  options: SpawnOptions,
+): SpawnResult<(typeof options)['stdio']>;
+export async function spawn(
+  command: string,
+  args: string[],
+  options: SpawnOptions,
+): SpawnResult<(typeof options)['stdio']>;
+export async function spawn(
+  command: string,
+  argsOrOpts?: string[] | SpawnOptions,
+  options?: SpawnOptions,
+): SpawnResult<typeof options extends { stdio: infer U } ? U : undefined> {
+  let args: string[] | undefined = [];
+  if (argsOrOpts !== undefined) {
+    args = isArgs(argsOrOpts) ? argsOrOpts : [];
+    options = isSpawnOptions(argsOrOpts) ? argsOrOpts : undefined;
+  }
+
+  return Bun.spawn([command, ...args], options);
+}
+
+export function spawnSync(command: string): SpawnSyncResult;
+export function spawnSync(command: string, args: string[]): SpawnSyncResult;
+export function spawnSync(
+  command: string,
+  options: SpawnOptions,
+): SpawnSyncResult<(typeof options)['stdio']>;
+export function spawnSync(
+  command: string,
+  args: string[],
+  options: SpawnOptions,
+): SpawnSyncResult<(typeof options)['stdio']>;
+export function spawnSync(
+  command: string,
+  argsOrOpts?: string[] | SpawnOptions,
+  options?: SpawnOptions,
+): SpawnSyncResult<typeof options extends { stdio: infer U } ? U : undefined> {
+  let args: string[] | undefined = [];
+  if (argsOrOpts !== undefined) {
+    args = isArgs(argsOrOpts) ? argsOrOpts : [];
+    options = isSpawnOptions(argsOrOpts) ? argsOrOpts : undefined;
+  }
+
+  if (isSpawnOptions(options)) {
+    if ('stdio' in options) {
+      if (Array.isArray(options.stdio)) {
+        [options.stdin, options.stdout, options.stderr] = Array.isArray(
+          options.stdio,
+        )
+          ? options.stdio
+          : [options.stdio, options.stdio, options.stdio];
+      } else if (typeof options.stdio === 'string') {
+        const stdio = options.stdio;
+        options.stdin = stdio;
+        options.stdout = stdio;
+        options.stderr = stdio;
+      }
+    }
+  }
+
+  return Bun.spawnSync([command, ...args], options);
 }

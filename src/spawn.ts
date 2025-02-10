@@ -1,19 +1,24 @@
 import {
   type ExecException,
   type ExecOptions as NodeExecOptions,
+  type SpawnOptions as NodeSpawnOptions,
   exec as nodeExec,
   execSync as nodeExecSync,
 } from 'node:child_process';
 import { spawn as nodeSpawn, sync as nodeSpawnSync } from 'cross-spawn';
 import type {
   ExecOptions as BenoExecOptions,
+  SpawnOptions as BenoSpawnOptions,
   ExecCallback,
   ExecResult,
-  ExecSyncResult,
+  ProcessResult,
 } from './types';
 
 export type ExecOptions = NodeExecOptions & BenoExecOptions;
-export type { ExecCallback, ExecResult, ExecSyncResult };
+export type SpawnOptions = NodeSpawnOptions & BenoSpawnOptions;
+export type SpawnResult = Promise<ReturnType<typeof nodeSpawn>>;
+export type SpawnSyncResult = ReturnType<typeof nodeSpawnSync>;
+export type { ExecCallback, ExecResult, ProcessResult };
 
 export function exec(command: string | string[]): ExecResult;
 export function exec(
@@ -72,15 +77,15 @@ export function exec<T = void>(
   });
 }
 
-export function execSync(command: string | string[]): ExecSyncResult;
+export function execSync(command: string | string[]): ProcessResult;
 export function execSync(
   command: string | string[],
   options: ExecOptions,
-): ExecSyncResult;
+): ProcessResult;
 export function execSync(
   command: string | string[],
   options?: ExecOptions,
-): ExecSyncResult {
+): ProcessResult {
   try {
     const output = nodeExecSync(
       Array.isArray(command) ? command.join(' ') : command,
@@ -105,7 +110,62 @@ export function execSync(
   }
 }
 
-const spawn = nodeSpawn;
-const spawnSync = nodeSpawnSync;
+export async function spawn(command: string): SpawnResult;
+export async function spawn(command: string, args: string[]): SpawnResult;
+export async function spawn(
+  command: string,
+  options: SpawnOptions,
+): SpawnResult;
+export async function spawn(
+  command: string,
+  args: string[],
+  options: SpawnOptions,
+): SpawnResult;
+export async function spawn(
+  command: string,
+  argsOrOpts?: string[] | SpawnOptions,
+  options?: SpawnOptions,
+): SpawnResult {
+  if (options === undefined) {
+    if (argsOrOpts === undefined) {
+      return nodeSpawn(command);
+    }
+    return nodeSpawn(
+      command,
+      argsOrOpts as typeof argsOrOpts extends string[]
+        ? string[]
+        : SpawnOptions,
+    );
+  }
+  return nodeSpawn(command, argsOrOpts as string[], options);
+}
 
-export { spawn, spawnSync };
+export function spawnSync(command: string): SpawnSyncResult;
+export function spawnSync(command: string, args: string[]): SpawnSyncResult;
+export function spawnSync(
+  command: string,
+  options: SpawnOptions,
+): SpawnSyncResult;
+export function spawnSync(
+  command: string,
+  args: string[],
+  options: SpawnOptions,
+): SpawnSyncResult;
+export function spawnSync(
+  command: string,
+  argsOrOpts?: string[] | SpawnOptions,
+  options?: SpawnOptions,
+): SpawnSyncResult {
+  if (options === undefined) {
+    if (argsOrOpts === undefined) {
+      return nodeSpawnSync(command);
+    }
+    return nodeSpawnSync(
+      command,
+      argsOrOpts as typeof argsOrOpts extends string[]
+        ? string[]
+        : SpawnOptions,
+    );
+  }
+  return nodeSpawnSync(command, argsOrOpts as string[], options);
+}

@@ -10,30 +10,25 @@ export type ExecOptions = Partial<{
   cwd: string;
   env: Record<string, string>;
 }>;
-export type ExecResult = Promise<Output>;
-export type ExecSyncResult = Output;
-export type ExecCallback<T = void> = (output: Output) => T;
+export type ExecResult = Promise<ProcessResult>;
+export type ExecCallback<T = void> = (output: ProcessResult) => T;
 
-export type ChildProcess = {
-  kill(signo?: Signal): void;
-};
+export type SpawnOptions = ExecOptions & { stdio?: Stdio };
 
-export type ProcessResult = {
-  status: Status;
-  signal: Signal;
-};
-WritableStream<Uint8Array>;
-export type Stdio = {
-  stdin: string;
-  stdout: string;
-  stderr: string;
-};
+export type IO = 'pipe' | 'ignore' | 'inherit';
+export type Stdio =
+  | IO
+  | {
+      stdin: IO;
+      stdout: IO;
+      stderr: IO;
+    };
 export type Status = {
   code: number;
   success: boolean;
   failed: boolean;
 };
-export type Output = Status & {
+export type ProcessResult = Status & {
   stdout: string | undefined;
   stderr: string | undefined;
 };
