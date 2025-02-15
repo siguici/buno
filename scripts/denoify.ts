@@ -22,7 +22,15 @@ fs.readdir(directoryPath, (err, files) => {
           throw err;
         }
 
-        const result = data.replace(/node:node:/g, 'node:');
+        const result = data
+          .replace(/node:node:/g, 'node:')
+          .replace(
+            /import\s+(.+?)\s+from\s+['"](\.\/?[^'";]+)(?<!\.ts)['"];?/gs,
+            (match, imports, path) => {
+              console.log(`🔁 Replacing ${path} by ${path}.ts in ${filePath}`);
+              return `import ${imports} from '${path}.ts';`;
+            },
+          );
 
         fs.writeFile(filePath, result, 'utf8', (err) => {
           if (err) {
