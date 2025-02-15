@@ -25,10 +25,12 @@ fs.readdir(directoryPath, (err, files) => {
         const result = data
           .replace(/node:node:/g, 'node:')
           .replace(
-            /import\s+(.+?)\s+from\s+['"](\.\/?[^'";]+)(?<!\.ts)['"];?/gs,
-            (match, imports, path) => {
-              console.log(`🔁 Replacing ${path} by ${path}.ts in ${filePath}`);
-              return `import ${imports} from '${path}.ts';`;
+            /(import|export)\s+(.+?)\s+from\s+['"](\.\/?[^'";]+)(?<!\.ts)['"];?/gs,
+            (match, action, modules, path) => {
+              console.log(
+                `🔁 Replacing '${action} from ${path}' by '${action} from ${path}.ts' in ${filePath}`,
+              );
+              return `${action} ${modules} from '${path}.ts';`;
             },
           );
 
