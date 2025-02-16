@@ -81,6 +81,11 @@ jobs:
         with:
           deno-version: ${{ matrix.deno }}
 
+      - name: 🦄 Set up Bun.sh
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ matrix.bun }}
+
       - name: 📂 Download Deno distribution files
         uses: actions/download-artifact@v4
         with:
