@@ -85,18 +85,15 @@ export function execSync(
   return result;
 }
 
-export async function spawn(command: string): SpawnResult;
-export async function spawn(command: string, args: string[]): SpawnResult;
-export async function spawn(
-  command: string,
-  options: SpawnOptions,
-): SpawnResult;
-export async function spawn(
+export function spawn(command: string): SpawnResult;
+export function spawn(command: string, args: string[]): SpawnResult;
+export function spawn(command: string, options: SpawnOptions): SpawnResult;
+export function spawn(
   command: string,
   args: string[],
   options: SpawnOptions,
 ): SpawnResult;
-export async function spawn(
+export function spawn(
   command: string,
   argsOrOpts?: string[] | SpawnOptions,
   options?: SpawnOptions,

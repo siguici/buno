@@ -144,18 +144,18 @@ export function execSync(
   };
 }
 
-export async function spawn(command: string): SpawnResult;
-export async function spawn(command: string, args: string[]): SpawnResult;
-export async function spawn(
+export function spawn(command: string): SpawnResult;
+export function spawn(command: string, args: string[]): SpawnResult;
+export function spawn(
   command: string,
   options: SpawnOptions,
 ): SpawnResult<(typeof options)['stdio']>;
-export async function spawn(
+export function spawn(
   command: string,
   args: string[],
   options: SpawnOptions,
 ): SpawnResult<(typeof options)['stdio']>;
-export async function spawn(
+export function spawn(
   command: string,
   argsOrOpts?: string[] | SpawnOptions,
   options?: SpawnOptions,
@@ -166,7 +166,9 @@ export async function spawn(
     options = isSpawnOptions(argsOrOpts) ? argsOrOpts : undefined;
   }
 
-  return Bun.spawn([command, ...args], options);
+  return new Promise((resolve) =>
+    resolve(Bun.spawn([command, ...args], options)),
+  );
 }
 
 export function spawnSync(command: string): SpawnSyncResult;
