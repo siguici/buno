@@ -1,6 +1,6 @@
 .PHONY: install check fix build
 
-install: node_modules bun.lockb
+install: node_modules bun.lock
 
 node_modules: package.json
 	bun install
