@@ -19,7 +19,7 @@ const which = async (
   options: WhichOptions,
 ): Promise<WhichResult> => {
   const opts = { nothrow: true, path: options.path };
-  const ch = chdir(options.cwd);
+  const bak = chdir(options.cwd);
   let result: WhichResult;
 
   if (options.cwd) {
@@ -27,13 +27,13 @@ const which = async (
   } else {
     result = _whichSync(command, opts);
   }
-  ch();
+  bak();
   return result;
 };
 
 const whichSync = (command: string, options: WhichOptions): WhichResult => {
   const opts = { nothrow: true, path: options.path };
-  const ch = chdir(options.cwd);
+  const bak = chdir(options.cwd);
   let result: WhichResult;
 
   if (options.cwd) {
@@ -41,7 +41,7 @@ const whichSync = (command: string, options: WhichOptions): WhichResult => {
   } else {
     result = _whichSync(command, opts);
   }
-  ch();
+  bak();
   return result;
 };
 
