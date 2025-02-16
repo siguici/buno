@@ -23,14 +23,28 @@ await build({
   package: pkg,
   async postBuild() {
     for await (const entryPoint of Deno.readDir(`${outDir}/esm`)) {
-      await Deno.rename(
-        `${outDir}/esm/${entryPoint.name}`,
-        `${distDir}/${entryPoint.name}`,
-      );
-      console.log(
-        '\x1b[32m',
-        `🚚 ${outDir}/esm/${entryPoint.name} -> ${distDir}/${entryPoint.name}`,
-      );
+      const inputFile = `${outDir}/esm/${entryPoint.name}`;
+      const outputFile = `${distDir}/${entryPoint.name}`;
+      await Deno.rename(inputFile, outputFile);
+
+      console.log('\x1b[32m', `🚚 ${inputFile} -> ${outputFile}`);
+
+      if (entryPoint.name.startsWith('_dnt.shims')) {
+        const fileData = new TextDecoder('utf-8').decode(
+          Deno.readFileSync(outputFile),
+        );
+        const result = fileData.replace(
+          /(import|export)\s+(.+?)\s+from\s+(?:"@deno\/([^'";]+)");?/gs,
+          (_, action, modules, path) => {
+            console.log(
+              `🔁 Replacing '${action} from "@deno/${path}"' by '${action} from "npm:@deno/${path}"' in ${outputFile}`,
+            );
+            return `${action} ${modules} from "npm:@deno/${path}";`;
+          },
+        );
+
+        Deno.writeFile(outputFile, new TextEncoder().encode(result));
+      }
     }
     await emptyDir(outDir);
   },

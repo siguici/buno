@@ -26,7 +26,7 @@ fs.readdir(directoryPath, (err, files) => {
           .replace(/node:node:/g, 'node:')
           .replace(
             /(import|export)\s+(.+?)\s+from\s+['"](\.\/?[^'";]+)(?<!\.ts)['"];?/gs,
-            (match, action, modules, path) => {
+            (_, action, modules, path) => {
               console.log(
                 `🔁 Replacing '${action} from ${path}' by '${action} from ${path}.ts' in ${filePath}`,
               );
