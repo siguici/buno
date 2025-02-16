@@ -17,7 +17,7 @@ await build({
   entryPoints: ['./deno/mod.ts'],
   outDir,
   shims: {
-    deno: true,
+    deno: false,
   },
   packageManager: pkg.packageManager.split('@')[0] ?? 'npm',
   package: pkg,
