@@ -20,7 +20,7 @@ jobs:
         os: [ubuntu-latest]
         bun: [1.2.2]
         node: [22.13.1]
-        deno: [2.1.9]
+        deno: [2.1.10]
         experimental: [false]
 
     name: 🔖 Release Beno using Node@${{ matrix.node }}, Bun@${{ matrix.bun }} & Deno@${{ matrix.deno }} under ${{ matrix.os }}
@@ -83,8 +83,6 @@ jobs:
 
       - name: 🦄 Set up Bun.sh
         uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: ${{ matrix.bun }}
 
       - name: 📂 Download Deno distribution files
         uses: actions/download-artifact@v4

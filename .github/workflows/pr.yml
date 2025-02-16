@@ -12,7 +12,7 @@ jobs:
         os: [ubuntu-latest]
         bun: [1.2.2]
         node: [22.13.1]
-        deno: [2.1.9]
+        deno: [2.1.10]
         experimental: [false]
 
     steps:
