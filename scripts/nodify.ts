@@ -19,6 +19,7 @@ await build({
   shims: {
     deno: true,
   },
+  packageManager: pkg.packageManager.split('@')[0] ?? 'npm',
   package: pkg,
   async postBuild() {
     for await (const entryPoint of Deno.readDir(`${outDir}/esm`)) {
