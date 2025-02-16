@@ -33,14 +33,14 @@ function normalizePath(path: string) {
   return path;
 }
 
-async function isFile(path: string): Promise<boolean> {
+function isFile(path: string): Promise<boolean> {
   try {
     return Deno.stat(path).then((stat) => stat.isFile);
   } catch (err) {
     if (err instanceof Deno.errors.PermissionDenied) {
       throw err;
     }
-    return false;
+    return new Promise(() => false);
   }
 }
 
