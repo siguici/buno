@@ -44,6 +44,10 @@ jobs:
         with:
           deno-version: ${{ matrix.deno }}
 
+      - name: ⚡️ Install dependencies
+        run: |
+          bun install
+
       - name: 🔖 Create Release Pull Request or Publish to NPM 🚀
         id: changesets
         uses: changesets/action@v1
