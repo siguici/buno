@@ -68,7 +68,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        deno: [2.1.9]
+        deno: [2.1.10]
+        bun: [1.2.2]
 
     name: 🚀 Deploy Beno to JSR using Deno@${{ matrix.deno }} under ${{ matrix.os }}
 
@@ -83,6 +84,8 @@ jobs:
 
       - name: 🦄 Set up Bun.sh
         uses: oven-sh/setup-bun@v2
+        with:
+          deno-version: ${{ matrix.bun }}
 
       - name: 📂 Download Deno distribution files
         uses: actions/download-artifact@v4

@@ -30,7 +30,7 @@ jobs:
           bun-version: ${{ matrix.bun }}
 
       - name: 🦕 Setup Deno
-        uses: denoland/setup-deno@v1
+        uses: denoland/setup-deno@v2
         with:
           deno-version: ${{ matrix.deno }}
 
