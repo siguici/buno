@@ -56,7 +56,9 @@ export function preferredPackageManager(
       if (pkgManager) {
         [name, version] = parsePackageManager(pkgManager);
       }
-    } catch {}
+    } catch {
+      // Ignore errors in `package.json`
+    }
   }
 
   const lockfileDetection = [

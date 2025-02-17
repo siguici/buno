@@ -64,7 +64,9 @@ export function preferredRuntime(cwd = process.cwd()): RuntimeInfo | undefined {
   if (existsSync(packageJson)) {
     try {
       engines = JSON.parse(readFileSync(packageJson, 'utf-8')).engines || {};
-    } catch {}
+    } catch {
+      // Ignore errors in `package.json`
+    }
   }
 
   for (let name of Object.keys(engines)) {
