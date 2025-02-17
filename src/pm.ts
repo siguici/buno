@@ -14,7 +14,9 @@ export function isPackageManager(name: string): name is PackageManagerName {
   return ['npm', 'cnpm', 'yarn', 'pnpm', 'bun', 'deno'].includes(name);
 }
 
-export function whichPackageManager(cwd = process.cwd()): PackageManagerInfo {
+export function whichPackageManager(
+  cwd: string = process.cwd(),
+): PackageManagerInfo {
   return (
     preferredPackageManager(cwd) ??
     detectedPackageManager(cwd) ??
@@ -23,7 +25,7 @@ export function whichPackageManager(cwd = process.cwd()): PackageManagerInfo {
 }
 
 export function detectedPackageManager(
-  cwd = process.cwd(),
+  cwd: string = process.cwd(),
 ): PackageManagerInfo | undefined {
   const userAgent = process.env.npm_config_user_agent;
 
@@ -41,7 +43,7 @@ export function detectedPackageManager(
 }
 
 export function preferredPackageManager(
-  cwd = process.cwd(),
+  cwd: string = process.cwd(),
 ): PackageManagerInfo | undefined {
   let name = '';
   let version: Version | undefined;

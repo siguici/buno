@@ -9,7 +9,7 @@ export const defaultRuntimeInfo: RuntimeInfo = {
   version: getRuntimeVersion('node'),
 };
 
-export function whichRuntime(cwd = process.cwd()): RuntimeInfo {
+export function whichRuntime(cwd: string = process.cwd()): RuntimeInfo {
   return preferredRuntime(cwd) ?? detectedRuntime() ?? defaultRuntimeInfo;
 }
 
@@ -56,7 +56,9 @@ export function getRuntimeVersion(runtime: string): Version | undefined {
   }
 }
 
-export function preferredRuntime(cwd = process.cwd()): RuntimeInfo | undefined {
+export function preferredRuntime(
+  cwd: string = process.cwd(),
+): RuntimeInfo | undefined {
   let engines: Record<string, string> = {};
   const packageJson = join(cwd, 'package.json');
 
