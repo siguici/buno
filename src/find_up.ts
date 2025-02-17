@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import fsPromises from 'node:fs/promises';
 import path from 'node:path';
-import process from 'node:process';
 import { toPath } from './helpers';
 import type { FindUpOptions } from './types';
 
