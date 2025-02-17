@@ -341,7 +341,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@changesets/cli": "^2.27.12",
+    "@changesets/cli": "^2.28.0",
     "@types/bun": "^1.2.2",
     "@types/cross-spawn": "^6.0.6",
     "@types/deno": "^2.0.0",
