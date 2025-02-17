@@ -85,7 +85,7 @@ jobs:
       - name: 🦄 Set up Bun.sh
         uses: oven-sh/setup-bun@v2
         with:
-          deno-version: ${{ matrix.bun }}
+          bun-version: ${{ matrix.bun }}
 
       - name: 📂 Download Deno distribution files
         uses: actions/download-artifact@v4
@@ -94,6 +94,9 @@ jobs:
           path: deno
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ⚡️ Install dependencies
+        run: deno install
 
       - name: 📦️ Build NPM package
         run: deno task build
