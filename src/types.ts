@@ -1,6 +1,35 @@
 export type WhichOptions = { path?: string; cwd?: string };
 export type WhichResult = string | null;
 
+export type Version = `${number}.${number}.${number}`;
+
+export type PackageManagerName =
+  | 'npm'
+  | 'cnpm'
+  | 'yarn'
+  | 'pnpm'
+  | 'bun'
+  | 'deno';
+
+export interface PackageManagerInfo {
+  name: PackageManagerName;
+  version?: Version;
+  lockfile?: string;
+}
+
+export interface FindUpOptions {
+  cwd?: string;
+  type?: 'file' | 'directory';
+  stopAt?: string;
+}
+
+export type RuntimeName = 'node' | 'bun' | 'deno';
+
+export interface RuntimeInfo {
+  name: RuntimeName;
+  version?: Version;
+}
+
 export type Cwd = string | URL;
 export interface Env {
   [key: string]: string;

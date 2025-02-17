@@ -113,6 +113,13 @@
       "import": "./node/events.mjs",
       "require": "./node/events.cjs"
     },
+    "./find_up": {
+      "bun": "./node/find_up.ts",
+      "deno": "./deno/find_up.js",
+      "types": "./node/find_up.d.ts",
+      "import": "./node/find_up.mjs",
+      "require": "./node/find_up.cjs"
+    },
     "./fs": {
       "bun": "./node/fs.ts",
       "deno": "./deno/fs.js",
@@ -176,6 +183,13 @@
       "import": "./node/perf_hooks.mjs",
       "require": "./node/perf_hooks.cjs"
     },
+    "./pm": {
+      "bun": "./node/pm.ts",
+      "deno": "./deno/pm.js",
+      "types": "./node/pm.d.ts",
+      "import": "./node/pm.mjs",
+      "require": "./node/pm.cjs"
+    },
     "./process": {
       "bun": "./node/process.ts",
       "deno": "./deno/process.js",
@@ -196,6 +210,13 @@
       "types": "./node/querystring.d.ts",
       "import": "./node/querystring.mjs",
       "require": "./node/querystring.cjs"
+    },
+    "./runtime": {
+      "bun": "./node/runtime.ts",
+      "deno": "./deno/runtime.js",
+      "types": "./node/runtime.d.ts",
+      "import": "./node/runtime.mjs",
+      "require": "./node/runtime.cjs"
     },
     "./readline": {
       "bun": "./node/readline.ts",
